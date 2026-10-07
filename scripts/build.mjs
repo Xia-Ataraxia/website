@@ -41,7 +41,7 @@ const T = {
     footerBrand: "주의를 빼앗기지 않게 돕는 지식 인프라와 AI 에이전트.",
     footerCols: [["사이트", [["/ko/", "홈"], ["/ko/manifesto/", "선언"], ["/ko/#work", "오픈소스"], ["/ko/#ataraxia", "왜 아타락시아인가"]]], ["바깥", [["https://github.com/Xia-Ataraxia", "GitHub"], ["https://beomsukoh.com/ko/", "beomsukoh.com"], ["/", "English"]]]],
     copyright: "© 2026 XIA · 아타락시아를 일상으로.",
-    lostTitle: "지도에 없는 곳입니다.", lostBody: "이 페이지는 없거나 자리를 옮겼습니다. 별자리는 그대로입니다.", lostBtn: "처음으로",
+    lostTitle: "지도에 없는 곳이다.", lostBody: "이 페이지는 없거나 자리를 옮겼다. 별자리는 그대로다.", lostBtn: "처음으로",
     ogTitle: "XIA — 아타락시아를 일상으로",
     fmtDate: (d) => { const [y, m] = d.split("-"); return `${y}년 ${Number(m)}월`; },
     fonts: "&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400;500",
