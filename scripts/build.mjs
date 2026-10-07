@@ -226,7 +226,7 @@ ${parts}
 
 function lostPage() {
   const t = T.en;
-  const html = `    <section class="lost"><div><p class="section__kicker">404</p><h1>${t.lostTitle}</h1><p>${t.lostBody}<br>${T.ko.lostBody}</p><a class="btn btn--accent" href="/">${t.lostBtn}</a></div></section>`;
+  const html = `    <section class="lost"><div><p class="section__kicker">404</p><h1>${t.lostTitle}</h1><p>${t.lostBody}<br><span lang="ko">${T.ko.lostBody}</span></p><a class="btn btn--accent" href="/">${t.lostBtn}</a></div></section>`;
   return layout({ lang: "en", path: "/404.html", altPath: "/", title: "404 — XIA", description: t.lostBody, body: html });
 }
 
@@ -240,7 +240,7 @@ function workCards(lang) {
       const meta = [
         `<span>★ <em>${r.stats.stars}</em></span>`,
         r.stats.downloads ? `<span>↓ <em>${r.stats.downloads.toLocaleString("en-US")}</em></span>` : "",
-        `<span>${t.fmtDate(r.stats.pushed)}</span>`,
+        `<span class="card__date">${t.fmtDate(r.stats.pushed)}</span>`,
       ].filter(Boolean).join("");
       return `          <a class="card" href="${p}/work/${r.slug}/"><b>${esc(r.name)}</b><span>${esc(r.summary[lang].split(/(?<=[.。다])\s/)[0])}</span><div class="card__meta">${meta}</div></a>`;
     }).join("\n");
