@@ -43,7 +43,7 @@ const T = {
     copyright: "© 2026 XIA · 아타락시아를 일상으로.",
     lostTitle: "지도에 없는 곳입니다.", lostBody: "이 페이지는 없거나 자리를 옮겼습니다. 별자리는 그대로입니다.", lostBtn: "처음으로",
     ogTitle: "XIA — 아타락시아를 일상으로",
-    fmtDate: (d) => { const [y, m] = d.split("-"); return `${y}년 ${Number(m)}월`; },
+    fmtDate: (d) => d.slice(0, 7).replace("-", "."),
     fonts: "&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400;500",
   },
 };

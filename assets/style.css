@@ -159,7 +159,9 @@ body.scrolled .chrome, .chrome--solid {
   overflow: hidden;
 }
 .hero__canvas { position: absolute; inset: 0; touch-action: none; }
-@media (min-width: 861px) { .hero__canvas { left: clamp(0px, 22vw, 360px); } }
+@media (min-width: 861px) {
+  .hero__canvas { left: clamp(0px, 18vw, 280px); -webkit-mask-image: linear-gradient(to right, transparent 0, #000 clamp(240px, 34vw, 560px)); mask-image: linear-gradient(to right, transparent 0, #000 clamp(240px, 34vw, 560px)); }
+}
 .hero__canvas canvas { display: block; width: 100% !important; height: 100% !important; }
 .hero__fallback {
   display: none; position: absolute; inset: 0; align-items: center; justify-content: center;
@@ -404,7 +406,7 @@ body.scrolled .panel { opacity: 0; pointer-events: none; }
 .card b { display: block; font-weight: 600; font-size: 1rem; line-height: 1.25; }
 .card:hover b { color: var(--accent); }
 .card span { color: var(--gray); font-size: 0.88rem; display: block; flex: 1; text-wrap: pretty; }
-.card__meta { display: flex; flex-wrap: wrap; gap: 0.3rem 0.9rem; font-family: var(--mono); font-size: 0.7rem; color: var(--gray); margin-top: 0.3rem; }
+.card__meta { display: flex; flex-wrap: wrap; gap: 0.3rem 0.7rem; font-family: var(--mono); font-size: 0.7rem; color: var(--gray); margin-top: 0.3rem; }
 .card__meta span { white-space: nowrap; }
 .card__meta em { font-style: normal; color: var(--dark); }
 .card__date { margin-left: auto; font-family: var(--body); font-size: 0.78rem; }
@@ -533,6 +535,7 @@ body.scrolled .panel { opacity: 0; pointer-events: none; }
 :lang(ko) { word-break: keep-all; overflow-wrap: break-word; }
 :lang(ko) .hero__title, :lang(ko) .doc h1 { line-height: 1.16; letter-spacing: -0.01em; }
 :lang(ko) .section__title { line-height: 1.22; letter-spacing: 0; }
+:lang(ko) em, :lang(ko) .hero__title em, :lang(ko) .quote-block blockquote em, :lang(ko) .doc h1 em { font-style: normal; }
 :lang(ko) .hero__lede, :lang(ko) .section__lede, :lang(ko) .prose { line-height: 1.8; }
 :lang(ko) .quote-block blockquote, :lang(ko) .prose blockquote { line-height: 1.5; }
 :lang(ko) .panel h3, :lang(ko) .pillar h3, :lang(ko) .principles b { line-height: 1.3; }
