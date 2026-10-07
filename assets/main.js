@@ -116,7 +116,7 @@ function renderPanel(n) {
   if (n.source) {
     const s = document.createElement("small");
     s.className = "panel__source";
-    s.textContent = L("From the vault: ", "볼트 출처: ") + n.source;
+    s.textContent = L("From the vault: ", "볼트의 노트: ") + n.source;
     p.append(document.createElement("br"), s);
   }
   const chips = panel.querySelector(".chips");

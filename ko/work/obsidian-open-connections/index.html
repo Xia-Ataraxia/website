@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Open Connections — XIA</title>
-  <meta name="description" content="로컬 임베딩 또는 선택한 AI 제공자로 관련 노트를 찾아내고 볼트 전체를 의미 검색합니다. 로컬로 돌리면 노트가 기기를 떠나지 않습니다. MCP 서버를 포함합니다.">
+  <meta name="description" content="로컬 임베딩이나 선택한 AI 제공자로 관련 노트를 찾고 볼트 전체를 의미로 검색합니다. 로컬로 돌리면 노트가 기기 밖으로 나가지 않습니다. MCP 서버도 들어 있습니다.">
   <link rel="canonical" href="https://xia-website.vercel.app/ko/work/obsidian-open-connections/">
   <link rel="alternate" hreflang="ko" href="https://xia-website.vercel.app/ko/work/obsidian-open-connections/">
   <link rel="alternate" hreflang="en" href="https://xia-website.vercel.app/work/obsidian-open-connections/">
@@ -14,7 +14,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="XIA">
   <meta property="og:title" content="Open Connections — XIA">
-  <meta property="og:description" content="로컬 임베딩 또는 선택한 AI 제공자로 관련 노트를 찾아내고 볼트 전체를 의미 검색합니다. 로컬로 돌리면 노트가 기기를 떠나지 않습니다. MCP 서버를 포함합니다.">
+  <meta property="og:description" content="로컬 임베딩이나 선택한 AI 제공자로 관련 노트를 찾고 볼트 전체를 의미로 검색합니다. 로컬로 돌리면 노트가 기기 밖으로 나가지 않습니다. MCP 서버도 들어 있습니다.">
   <meta property="og:image" content="https://xia-website.vercel.app/assets/og.png">
   <meta property="og:url" content="https://xia-website.vercel.app/ko/work/obsidian-open-connections/">
   <meta name="twitter:card" content="summary_large_image">
@@ -59,10 +59,10 @@
         <div class="doc__grid">
           <div class="prose">
           
-          <p><strong>로컬 임베딩 또는 선택한 AI 제공자로 관련 노트를 찾아내고 볼트 전체를 의미 검색합니다. 로컬로 돌리면 노트가 기기를 떠나지 않습니다. MCP 서버를 포함합니다.</strong></p>
-          <p>글을 쓰는 동안 Connections 뷰가 지금 노트와 의미가 닿는 노트를 보여주고, 다른 노트로 옮기면 따라 바뀝니다. Semantic Lookup은 키워드가 아니라 의미로 볼트를 검색합니다.</p>
-          <p>기본은 로컬 임베딩입니다. Transformers.js가 브라우저 안에서 WebGPU 가속(WASM 대체)으로 돌아가고, 한국어 같은 비영어 볼트를 위한 다국어 모델이 있습니다. OpenAI, Gemini, Ollama, LM Studio, Upstage, OpenRouter도 원하면 쓸 수 있습니다.</p>
-          <p>임베딩은 SQLite에 캐시되고 모델이 바뀌면 자동으로 다시 만듭니다. 데스크톱과 모바일에서 동작하며 커뮤니티 플러그인 디렉터리에 등록돼 있습니다.</p>
+          <p><strong>로컬 임베딩이나 선택한 AI 제공자로 관련 노트를 찾고 볼트 전체를 의미로 검색합니다. 로컬로 돌리면 노트가 기기 밖으로 나가지 않습니다. MCP 서버도 들어 있습니다.</strong></p>
+          <p>글을 쓰는 동안 Connections 뷰가 지금 노트와 뜻이 닿는 노트를 보여 주고, 다른 노트로 옮겨 가면 따라서 바뀝니다. Semantic Lookup은 키워드가 아니라 의미로 볼트를 검색합니다.</p>
+          <p>기본은 로컬 임베딩입니다. Transformers.js가 WebGPU 가속(없으면 WASM)으로 돌아가고, 한국어처럼 영어가 아닌 볼트를 위한 다국어 모델도 있습니다. 원하면 OpenAI, Gemini, Ollama, LM Studio, Upstage, OpenRouter를 쓸 수 있습니다.</p>
+          <p>임베딩은 SQLite에 캐시하고, 모델이 바뀌면 자동으로 다시 만듭니다. 데스크톱과 모바일에서 모두 돌아가며 커뮤니티 플러그인 디렉터리에 등록돼 있습니다.</p>
           <h2><small>설치</small>Obsidian</h2>
           <div class="codeblock"><pre><code>Settings → Community plugins → Browse → &quot;Open Connections&quot; → Install → Enable</code></pre><span class="codeblock__label"><button class="codeblock__copy" type="button" data-copy data-copied="복사됨">복사</button></span></div>
           <div class="related"><h4>지도에서 이어지는 개념</h4><ul class="chips"><li><a class="chip" href="/ko/?node=obsidian"><i></i>Obsidian</a></li><li><a class="chip" href="/ko/?node=localfirst"><i></i>로컬 우선</a></li><li><a class="chip" href="/ko/?node=moc"><i></i>MOC</a></li><li><a class="chip" href="/ko/?node=agents"><i></i>AI 에이전트</a></li></ul></div>
@@ -86,12 +86,12 @@
     <div class="footer__inner">
       <div class="footer__brand">
         <a class="wordmark" href="/ko/" aria-label="XIA home"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
-        <p>당신의 주의를 당신 것으로 지키는 지식 인프라와 AI 에이전트.</p>
+        <p>주의를 빼앗기지 않게 돕는 지식 인프라와 AI 에이전트.</p>
       </div>
       <div><h4>사이트</h4><ul><li><a href="/ko/">홈</a></li><li><a href="/ko/manifesto/">선언</a></li><li><a href="/ko/#work">오픈소스</a></li><li><a href="/ko/#ataraxia">왜 아타락시아인가</a></li></ul></div>
       <div><h4>바깥</h4><ul><li><a href="https://github.com/Xia-Ataraxia" rel="noopener">GitHub</a></li><li><a href="https://beomsukoh.com/ko/" rel="noopener">beomsukoh.com</a></li><li><a href="/">English</a></li></ul></div>
     </div>
-    <div class="footer__meta"><span>© 2026 XIA · 아타락시아를 작동하게 만듭니다.</span><span>Beomsu Koh · Korea</span></div>
+    <div class="footer__meta"><span>© 2026 XIA · 아타락시아를 일상으로.</span><span>Beomsu Koh · Korea</span></div>
   </footer>
   <script type="module" src="/assets/main.js"></script>
 </body>

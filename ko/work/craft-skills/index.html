@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>craft-skills — XIA</title>
-  <meta name="description" content="소프트웨어와 연구 작업을 위한 Agent Skill 48개, 평범한 SKILL.md 구조. 이식 가능한 코어에는 런타임 종속 동작이 없고, Claude Code·Codex·Hermes·Cursor·Grok 연동은 얇은 어댑터에만 있습니다.">
+  <meta name="description" content="소프트웨어 개발과 연구를 위한 Agent Skill 48개. 평범한 SKILL.md 구조입니다. 어디로든 옮길 수 있는 코어에는 런타임에 묶인 동작이 없고, Claude Code·Codex·Hermes·Cursor·Grok 연동은 얇은 어댑터에만 둡니다.">
   <link rel="canonical" href="https://xia-website.vercel.app/ko/work/craft-skills/">
   <link rel="alternate" hreflang="ko" href="https://xia-website.vercel.app/ko/work/craft-skills/">
   <link rel="alternate" hreflang="en" href="https://xia-website.vercel.app/work/craft-skills/">
@@ -14,7 +14,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="XIA">
   <meta property="og:title" content="craft-skills — XIA">
-  <meta property="og:description" content="소프트웨어와 연구 작업을 위한 Agent Skill 48개, 평범한 SKILL.md 구조. 이식 가능한 코어에는 런타임 종속 동작이 없고, Claude Code·Codex·Hermes·Cursor·Grok 연동은 얇은 어댑터에만 있습니다.">
+  <meta property="og:description" content="소프트웨어 개발과 연구를 위한 Agent Skill 48개. 평범한 SKILL.md 구조입니다. 어디로든 옮길 수 있는 코어에는 런타임에 묶인 동작이 없고, Claude Code·Codex·Hermes·Cursor·Grok 연동은 얇은 어댑터에만 둡니다.">
   <meta property="og:image" content="https://xia-website.vercel.app/assets/og.png">
   <meta property="og:url" content="https://xia-website.vercel.app/ko/work/craft-skills/">
   <meta name="twitter:card" content="summary_large_image">
@@ -47,7 +47,7 @@
       <div class="doc__wide">
         <p class="crumbs"><a href="/ko/">XIA</a> / <a href="/ko/#work">오픈소스</a> / <span>기반</span></p>
         <h1>craft-skills</h1>
-        <p class="doc__tagline">당신의 기술은 당신 것, 특정 벤더에 묶이지 않게.</p>
+        <p class="doc__tagline">내 기술은 내 것. 어느 벤더에도 묶이지 않게.</p>
         <div class="doc__meta">
           <span>종류 <em>기반</em></span>
           <span>언어 <em>Python</em></span>
@@ -58,10 +58,10 @@
         <div class="doc__grid">
           <div class="prose">
           
-          <p><strong>소프트웨어와 연구 작업을 위한 Agent Skill 48개, 평범한 SKILL.md 구조. 이식 가능한 코어에는 런타임 종속 동작이 없고, Claude Code·Codex·Hermes·Cursor·Grok 연동은 얇은 어댑터에만 있습니다.</strong></p>
-          <p>작업 중심 라이브러리입니다. debug, refactor, research, security, tdd, git, write-prd, blast-radius 등 48개. 각각은 독립된 SKILL.md이고, 에이전트는 그 작업에 필요한 것만 불러옵니다.</p>
-          <p>개인·세컨드 브레인 자동화와는 일부러 분리해 두 영역이 서로 섞이지 않게 했습니다. 아키텍처·백엔드·프론트엔드·프로그래밍·테스트 원칙이 그것을 쓰는 플레이북 옆에 있습니다.</p>
-          <p>unslop, reflect, correct 같은 스킬이 있는 이유는, 글을 쓰는 에이전트라면 자기 티를 지우고, 세션에서 배우고, 수정이 저장소에 남게 할 수 있어야 하기 때문입니다.</p>
+          <p><strong>소프트웨어 개발과 연구를 위한 Agent Skill 48개. 평범한 SKILL.md 구조입니다. 어디로든 옮길 수 있는 코어에는 런타임에 묶인 동작이 없고, Claude Code·Codex·Hermes·Cursor·Grok 연동은 얇은 어댑터에만 둡니다.</strong></p>
+          <p>작업 단위로 묶은 라이브러리입니다. debug, refactor, research, security, tdd, git, write-prd, blast-radius 등 48개. 하나하나가 독립된 SKILL.md라서, 에이전트는 그 작업에 필요한 것만 불러옵니다.</p>
+          <p>개인 세컨드 브레인 자동화와는 일부러 떼어 놓아 두 영역이 섞이지 않게 했습니다. 아키텍처·백엔드·프론트엔드·프로그래밍·테스트 원칙이 그것을 쓰는 플레이북 바로 옆에 있습니다.</p>
+          <p>unslop, reflect, correct 같은 스킬을 둔 이유는 간단합니다. 글을 쓰는 에이전트라면 자기 티를 지우고, 세션에서 배우고, 고친 것을 저장소에 남길 수 있어야 하기 때문입니다.</p>
           <h2><small>설치</small>shell</h2>
           <div class="codeblock"><pre><code>git clone https://github.com/Xia-Ataraxia/craft-skills
 cd craft-skills &amp;&amp; ./install.sh</code></pre><span class="codeblock__label"><button class="codeblock__copy" type="button" data-copy data-copied="복사됨">복사</button></span></div>
@@ -85,12 +85,12 @@ cd craft-skills &amp;&amp; ./install.sh</code></pre><span class="codeblock__labe
     <div class="footer__inner">
       <div class="footer__brand">
         <a class="wordmark" href="/ko/" aria-label="XIA home"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
-        <p>당신의 주의를 당신 것으로 지키는 지식 인프라와 AI 에이전트.</p>
+        <p>주의를 빼앗기지 않게 돕는 지식 인프라와 AI 에이전트.</p>
       </div>
       <div><h4>사이트</h4><ul><li><a href="/ko/">홈</a></li><li><a href="/ko/manifesto/">선언</a></li><li><a href="/ko/#work">오픈소스</a></li><li><a href="/ko/#ataraxia">왜 아타락시아인가</a></li></ul></div>
       <div><h4>바깥</h4><ul><li><a href="https://github.com/Xia-Ataraxia" rel="noopener">GitHub</a></li><li><a href="https://beomsukoh.com/ko/" rel="noopener">beomsukoh.com</a></li><li><a href="/">English</a></li></ul></div>
     </div>
-    <div class="footer__meta"><span>© 2026 XIA · 아타락시아를 작동하게 만듭니다.</span><span>Beomsu Koh · Korea</span></div>
+    <div class="footer__meta"><span>© 2026 XIA · 아타락시아를 일상으로.</span><span>Beomsu Koh · Korea</span></div>
   </footer>
   <script type="module" src="/assets/main.js"></script>
 </body>
