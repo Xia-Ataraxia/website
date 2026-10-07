@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>craft-skills — XIA</title>
+  <meta name="description" content="소프트웨어와 연구 작업을 위한 Agent Skill 48개, 평범한 SKILL.md 구조. 이식 가능한 코어에는 런타임 종속 동작이 없고, Claude Code·Codex·Hermes·Cursor·Grok 연동은 얇은 어댑터에만 있습니다.">
+  <link rel="canonical" href="https://xia-website.vercel.app/ko/work/craft-skills/">
+  <link rel="alternate" hreflang="ko" href="https://xia-website.vercel.app/ko/work/craft-skills/">
+  <link rel="alternate" hreflang="en" href="https://xia-website.vercel.app/work/craft-skills/">
+  <link rel="alternate" hreflang="x-default" href="https://xia-website.vercel.app/work/craft-skills/">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/icon-512.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="XIA">
+  <meta property="og:title" content="craft-skills — XIA">
+  <meta property="og:description" content="소프트웨어와 연구 작업을 위한 Agent Skill 48개, 평범한 SKILL.md 구조. 이식 가능한 코어에는 런타임 종속 동작이 없고, Claude Code·Codex·Hermes·Cursor·Grok 연동은 얇은 어댑터에만 있습니다.">
+  <meta property="og:image" content="https://xia-website.vercel.app/assets/og.png">
+  <meta property="og:url" content="https://xia-website.vercel.app/ko/work/craft-skills/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#090b12" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+  <a class="sr-only" href="#main">본문으로 건너뛰기</a>
+  <header class="chrome chrome--solid">
+    <a class="wordmark" href="/ko/" aria-label="XIA home"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
+    <nav class="chrome__nav" aria-label="Primary">
+      <a href="/ko/#vision" class="hide-sm">비전</a>
+      <a href="/ko/manifesto/">선언</a>
+      <a href="/ko/#work">오픈소스</a>
+      <a href="/ko/#ataraxia" class="hide-sm">아타락시아</a>
+      <span class="chrome__lang"><a href="/work/craft-skills/" hreflang="en" data-lang-link="en">EN</a> · <a href="/ko/work/craft-skills/" aria-current="page" data-lang-link="ko">KO</a></span>
+      <button id="theme" class="iconbtn" type="button" aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
+      </button>
+    </nav>
+  </header>
+  <main id="main">
+    <article class="doc">
+      <div class="doc__wide">
+        <p class="crumbs"><a href="/ko/">XIA</a> / <a href="/ko/#work">오픈소스</a> / <span>기반</span></p>
+        <h1>craft-skills</h1>
+        <p class="doc__tagline">당신의 기술은 당신 것, 특정 벤더에 묶이지 않게.</p>
+        <div class="doc__meta">
+          <span>종류 <em>기반</em></span>
+          <span>언어 <em>Python</em></span>
+          <span>라이선스 <em>MIT</em></span>
+          <span>★ <em>0</em> 스타</span>
+          <span>업데이트 <em>2026년 10월</em></span>
+        </div>
+        <div class="doc__grid">
+          <div class="prose">
+          
+          <p><strong>소프트웨어와 연구 작업을 위한 Agent Skill 48개, 평범한 SKILL.md 구조. 이식 가능한 코어에는 런타임 종속 동작이 없고, Claude Code·Codex·Hermes·Cursor·Grok 연동은 얇은 어댑터에만 있습니다.</strong></p>
+          <p>작업 중심 라이브러리입니다. debug, refactor, research, security, tdd, git, write-prd, blast-radius 등 48개. 각각은 독립된 SKILL.md이고, 에이전트는 그 작업에 필요한 것만 불러옵니다.</p>
+          <p>개인·세컨드 브레인 자동화와는 일부러 분리해 두 영역이 서로 섞이지 않게 했습니다. 아키텍처·백엔드·프론트엔드·프로그래밍·테스트 원칙이 그것을 쓰는 플레이북 옆에 있습니다.</p>
+          <p>unslop, reflect, correct 같은 스킬이 있는 이유는, 글을 쓰는 에이전트라면 자기 티를 지우고, 세션에서 배우고, 수정이 저장소에 남게 할 수 있어야 하기 때문입니다.</p>
+          <h2><small>설치</small>shell</h2>
+          <div class="codeblock"><pre><code>git clone https://github.com/Xia-Ataraxia/craft-skills
+cd craft-skills &amp;&amp; ./install.sh</code></pre><span class="codeblock__label"><button class="codeblock__copy" type="button" data-copy data-copied="복사됨">복사</button></span></div>
+          <div class="related"><h4>지도에서 이어지는 개념</h4><ul class="chips"><li><a class="chip" href="/ko/?node=skills"><i></i>스킬</a></li><li><a class="chip" href="/ko/?node=agents"><i></i>AI 에이전트</a></li><li><a class="chip" href="/ko/?node=claudecode"><i></i>Claude Code</a></li><li><a class="chip" href="/ko/?node=codex"><i></i>Codex</a></li><li><a class="chip" href="/ko/?node=hermes"><i></i>Hermes</a></li><li><a class="chip" href="/ko/?node=evidence"><i></i>증거</a></li></ul></div>
+          </div>
+          <aside class="aside">
+            <div class="aside__box"><h4>한눈에</h4><ul><li><span>스킬 48개</span></li><li><span>평범한 SKILL.md</span></li><li><span>런타임 렌즈 5개</span></li><li><span>MIT</span></li></ul></div>
+            <div class="aside__links">
+              <a class="btn btn--accent" href="https://github.com/Xia-Ataraxia/craft-skills" rel="noopener">GitHub에서 보기 ↗</a>
+            </div>
+          </aside>
+        </div>
+        <nav class="docnav" aria-label="이전 / 다음">
+          <a href="/ko/work/obsidian-vault-template/"><small>← 이전</small><b>Obsidian Vault Template</b></a>
+          <a href="/ko/work/secondbrain-skills/"><small>다음 →</small><b>secondbrain-skills</b></a>
+        </nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a class="wordmark" href="/ko/" aria-label="XIA home"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
+        <p>당신의 주의를 당신 것으로 지키는 지식 인프라와 AI 에이전트.</p>
+      </div>
+      <div><h4>사이트</h4><ul><li><a href="/ko/">홈</a></li><li><a href="/ko/manifesto/">선언</a></li><li><a href="/ko/#work">오픈소스</a></li><li><a href="/ko/#ataraxia">왜 아타락시아인가</a></li></ul></div>
+      <div><h4>바깥</h4><ul><li><a href="https://github.com/Xia-Ataraxia" rel="noopener">GitHub</a></li><li><a href="https://beomsukoh.com/ko/" rel="noopener">beomsukoh.com</a></li><li><a href="/">English</a></li></ul></div>
+    </div>
+    <div class="footer__meta"><span>© 2026 XIA · 아타락시아를 작동하게 만듭니다.</span><span>Beomsu Koh · Korea</span></div>
+  </footer>
+  <script type="module" src="/assets/main.js"></script>
+</body>
+</html>

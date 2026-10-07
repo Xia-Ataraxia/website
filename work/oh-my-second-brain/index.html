@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Oh My Second Brain — XIA</title>
+  <meta name="description" content="A user-owned knowledge and convention layer for Obsidian, Markdown, and AI agents. Your agents find what your vault already knows and write within the conventions you defined.">
+  <link rel="canonical" href="https://xia-website.vercel.app/work/oh-my-second-brain/">
+  <link rel="alternate" hreflang="en" href="https://xia-website.vercel.app/work/oh-my-second-brain/">
+  <link rel="alternate" hreflang="ko" href="https://xia-website.vercel.app/ko/work/oh-my-second-brain/">
+  <link rel="alternate" hreflang="x-default" href="https://xia-website.vercel.app/work/oh-my-second-brain/">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/icon-512.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="XIA">
+  <meta property="og:title" content="Oh My Second Brain — XIA">
+  <meta property="og:description" content="A user-owned knowledge and convention layer for Obsidian, Markdown, and AI agents. Your agents find what your vault already knows and write within the conventions you defined.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Xia-Ataraxia/oh-my-second-brain/main/assets/readme-hero.webp">
+  <meta property="og:url" content="https://xia-website.vercel.app/work/oh-my-second-brain/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#090b12" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+  <header class="chrome chrome--solid">
+    <a class="wordmark" href="/" aria-label="XIA home"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
+    <nav class="chrome__nav" aria-label="Primary">
+      <a href="/#vision" class="hide-sm">Vision</a>
+      <a href="/manifesto/">Manifesto</a>
+      <a href="/#work">Open source</a>
+      <a href="/#ataraxia" class="hide-sm">Ataraxia</a>
+      <span class="chrome__lang"><a href="/work/oh-my-second-brain/" aria-current="page" data-lang-link="en">EN</a> · <a href="/ko/work/oh-my-second-brain/" hreflang="ko" data-lang-link="ko">KO</a></span>
+      <button id="theme" class="iconbtn" type="button" aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
+      </button>
+    </nav>
+  </header>
+  <main id="main">
+    <article class="doc">
+      <div class="doc__wide">
+        <p class="crumbs"><a href="/">XIA</a> / <a href="/#work">Open source</a> / <span>Foundations</span></p>
+        <h1>Oh My Second Brain</h1>
+        <p class="doc__tagline">A constellation of knowledge, still yours.</p>
+        <div class="doc__meta">
+          <span>Kind <em>Foundations</em></span>
+          <span>Language <em>TypeScript</em></span>
+          <span>License <em>MIT</em></span>
+          <span>★ <em>5</em> stars</span>
+          <span>updated <em>Oct 2026</em></span>
+        </div>
+        <div class="doc__grid">
+          <div class="prose">
+          <figure class="figure"><img src="https://raw.githubusercontent.com/Xia-Ataraxia/oh-my-second-brain/main/assets/readme-hero.webp" alt="A towering library with floating pages and connected stars" loading="lazy"><figcaption>Oh My Second Brain</figcaption></figure>
+          <p><strong>A user-owned knowledge and convention layer for Obsidian, Markdown, and AI agents. Your agents find what your vault already knows and write within the conventions you defined.</strong></p>
+          <p>Your vault already holds ideas, decisions, and things you learned. OMS helps your agents find that knowledge and write within the conventions you defined. Obsidian stays the command center, and your notes stay plain Markdown.</p>
+          <p>Recall starts with lexical retrieval and adds vector search, HyDE, query expansion, or reranking only when you ask for them. Writing goes through a contract: you define what your folders and properties mean, and supported write paths check that contract and report what they did.</p>
+          <p>Search and status commands stay read-only. Index maintenance is explicit. Nothing moves your notes for you.</p>
+          <h2><small>Install</small>npm</h2>
+          <div class="codeblock"><pre><code>npm install -g oh-my-second-brain
+oms setup --vault /path/to/vault
+oms setup host install --runtime claude --vault /path/to/vault --yes</code></pre><span class="codeblock__label"><button class="codeblock__copy" type="button" data-copy data-copied="Copied">Copy</button></span></div>
+          <div class="related"><h4>Related ideas on the map</h4><ul class="chips"><li><a class="chip" href="/?node=secondbrain"><i></i>Second brain</a></li><li><a class="chip" href="/?node=obsidian"><i></i>Obsidian</a></li><li><a class="chip" href="/?node=localfirst"><i></i>Local-first</a></li><li><a class="chip" href="/?node=agents"><i></i>AI agents</a></li><li><a class="chip" href="/?node=boundaries"><i></i>Boundaries</a></li><li><a class="chip" href="/work/obsidian-vault-template/"><i></i>Obsidian Vault Template</a></li><li><a class="chip" href="/work/secondbrain-skills/"><i></i>secondbrain-skills</a></li></ul></div>
+          </div>
+          <aside class="aside">
+            <div class="aside__box"><h4>At a glance</h4><ul><li><span>Node.js ≥ 20</span></li><li><span>4 MCP tools</span></li><li><span>6 shared skills</span></li><li><span>Claude Code · Codex · Hermes</span></li></ul></div>
+            <div class="aside__links">
+              <a class="btn btn--accent" href="https://github.com/Xia-Ataraxia/oh-my-second-brain" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </aside>
+        </div>
+        <nav class="docnav" aria-label="Previous / Next">
+          <a href="/work/quartz-graph-landing/"><small>← Previous</small><b>Quartz Graph Landing</b></a>
+          <a href="/work/obsidian-vault-template/"><small>Next →</small><b>Obsidian Vault Template</b></a>
+        </nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a class="wordmark" href="/" aria-label="XIA home"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
+        <p>Knowledge infrastructure and AI agents that keep your attention yours.</p>
+      </div>
+      <div><h4>Site</h4><ul><li><a href="/">Home</a></li><li><a href="/manifesto/">Manifesto</a></li><li><a href="/#work">Open source</a></li><li><a href="/#ataraxia">Why Ataraxia</a></li></ul></div>
+      <div><h4>Elsewhere</h4><ul><li><a href="https://github.com/Xia-Ataraxia" rel="noopener">GitHub</a></li><li><a href="https://beomsukoh.com/" rel="noopener">beomsukoh.com</a></li><li><a href="/ko/">한국어</a></li></ul></div>
+    </div>
+    <div class="footer__meta"><span>© 2026 XIA · Ataraxia, made operational.</span><span>Beomsu Koh · Korea</span></div>
+  </footer>
+  <script type="module" src="/assets/main.js"></script>
+</body>
+</html>

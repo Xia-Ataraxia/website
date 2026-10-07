@@ -1,5 +1,9 @@
-// XIA site: theme, language, reveal, and the 3D constellation hero.
+// XIA site: theme, language, reveal, copy buttons, and the 3D constellation hero.
+// Every node in the constellation is real: an idea from the Ataraxia vault, a repository, a hub, or a principle.
 // Same CDN pins as quartz-graph-landing so three/3d-force-graph/SpriteText share one three instance.
+import { CONCEPTS } from "./concepts.js";
+import { REPOS } from "./repos.js";
+
 const THREE_VERSION = "0.179.1";
 const CDN = {
   three: `https://esm.sh/three@${THREE_VERSION}`,
@@ -9,7 +13,9 @@ const CDN = {
 
 const root = document.documentElement;
 const lang = root.lang.startsWith("ko") ? "ko" : "en";
+const P = lang === "ko" ? "/ko" : "";
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const L = (en, ko) => (lang === "ko" ? ko : en);
 
 /* ---------- theme ---------- */
 const isDark = () => {
@@ -35,7 +41,7 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
 try {
   const pref = localStorage.getItem("lang");
   if (!pref && lang === "en" && location.pathname === "/" && navigator.language?.toLowerCase().startsWith("ko")) {
-    location.replace("/ko/");
+    location.replace("/ko/" + location.search);
   }
 } catch {}
 for (const a of document.querySelectorAll("[data-lang-link]")) {
@@ -51,107 +57,121 @@ const io = new IntersectionObserver((entries) => {
 }, { rootMargin: "0px 0px -8% 0px" });
 for (const el of document.querySelectorAll(".section__inner")) { el.classList.add("reveal"); io.observe(el); }
 
+/* ---------- copy buttons (subpages) ---------- */
+for (const btn of document.querySelectorAll("[data-copy]")) {
+  btn.addEventListener("click", async () => {
+    const code = btn.closest(".codeblock")?.querySelector("code")?.textContent ?? "";
+    const label = btn.textContent;
+    try { await navigator.clipboard.writeText(code); btn.textContent = btn.dataset.copied; } catch { btn.textContent = "×"; }
+    setTimeout(() => { btn.textContent = label; }, 1400);
+  });
+}
+
 /* ---------- constellation data ---------- */
-// group: hub | concept | product | principle | note. anchor: section to scroll to on click.
-const L = (en, ko) => (lang === "ko" ? ko : en);
-const labeled = [
-  { id: "xia", name: "XIA", group: "hub", anchor: "#top" },
-  { id: "knowledge", name: L("Knowledge", "지식 관리"), group: "hub", anchor: "#vision" },
-  { id: "agents", name: L("AI Agents", "AI 에이전트"), group: "hub", anchor: "#vision" },
-  { id: "attention", name: L("Cognitive resources", "인지 자원"), group: "hub", anchor: "#vision" },
-  { id: "ataraxia", name: "Ataraxia", group: "hub", anchor: "#ataraxia" },
-  { id: "oss", name: L("Open source", "오픈 소스"), group: "hub", anchor: "#work" },
-
-  { id: "intent", name: L("Intent", "의도"), group: "concept", anchor: "#vision" },
-  { id: "secondbrain", name: L("Second brain", "세컨드 브레인"), group: "concept", anchor: "#vision" },
-  { id: "obsidian", name: "Obsidian", group: "concept", anchor: "#work" },
-  { id: "para", name: "PARA", group: "concept", anchor: "#vision" },
-  { id: "zettel", name: "Zettelkasten", group: "concept", anchor: "#vision" },
-  { id: "localfirst", name: L("Local-first", "로컬 우선"), group: "concept", anchor: "#vision" },
-  { id: "moc", name: L("Map of Content", "MOC"), group: "concept", anchor: "#vision" },
-  { id: "daily", name: L("Daily notes", "데일리 노트"), group: "concept", anchor: "#vision" },
-  { id: "quartz", name: "Quartz", group: "concept", anchor: "#work" },
-  { id: "hermes", name: "Hermes", group: "concept", anchor: "#vision" },
-  { id: "claudecode", name: "Claude Code", group: "concept", anchor: "#work" },
-  { id: "codex", name: "Codex", group: "concept", anchor: "#work" },
-  { id: "skills", name: L("Skills", "스킬"), group: "concept", anchor: "#work" },
-  { id: "receipts", name: L("Receipts", "영수증"), group: "concept", anchor: "#principles" },
-  { id: "evidence", name: L("Evidence", "증거"), group: "concept", anchor: "#principles" },
-  { id: "boundaries", name: L("Boundaries", "경계"), group: "concept", anchor: "#principles" },
-  { id: "records", name: L("Work records", "작업 기록"), group: "concept", anchor: "#principles" },
-  { id: "focus", name: L("Focus", "집중"), group: "concept", anchor: "#vision" },
-  { id: "calm", name: L("Calm", "고요"), group: "concept", anchor: "#principles" },
-  { id: "deepwork", name: L("Deep work", "딥 워크"), group: "concept", anchor: "#vision" },
-  { id: "economy", name: L("Attention economy", "주의력 경제"), group: "concept", anchor: "#vision" },
-  { id: "choice", name: L("Choice", "선택"), group: "concept", anchor: "#vision" },
-  { id: "noise", name: L("Noise", "소음"), group: "concept", anchor: "#vision" },
-  { id: "ivory", name: L("Ivory tower", "상아탑"), group: "concept", anchor: "#ataraxia" },
-  { id: "purity", name: L("Unstained", "물들지 않는 순수"), group: "concept", anchor: "#ataraxia" },
-  { id: "stillness", name: L("Stillness", "고요함"), group: "concept", anchor: "#ataraxia" },
-  { id: "truth", name: L("Higher truth", "더 높은 진리"), group: "concept", anchor: "#ataraxia" },
-  { id: "beomsu", name: L("Beomsu Koh", "고범수"), group: "concept", anchor: "#ataraxia" },
-
-  { id: "p1", name: L("Calm over clutter", "소음보다 고요"), group: "principle", anchor: "#principles" },
-  { id: "p2", name: L("Evidence before status", "상태보다 증거"), group: "principle", anchor: "#principles" },
-  { id: "p3", name: L("Durable over disposable", "일회성보다 지속"), group: "principle", anchor: "#principles" },
-  { id: "p4", name: L("Automation with an owner", "주인이 있는 자동화"), group: "principle", anchor: "#principles" },
-
-  { id: "omsb", name: "Oh My Second Brain", group: "product", anchor: "#work" },
-  { id: "vault", name: "Vault Template", group: "product", anchor: "#work" },
-  { id: "craft", name: "craft-skills", group: "product", anchor: "#work" },
-  { id: "sbskills", name: "secondbrain-skills", group: "product", anchor: "#work" },
-  { id: "mac", name: "Metadata Auto Classifier", group: "product", anchor: "#work" },
-  { id: "qmd", name: "Obsidian QMD", group: "product", anchor: "#work" },
-  { id: "oc", name: "Open Connections", group: "product", anchor: "#work" },
-  { id: "eagle", name: "Eagle", group: "product", anchor: "#work" },
-  { id: "player", name: "Note Player", group: "product", anchor: "#work" },
-  { id: "bible", name: "Bible Search", group: "product", anchor: "#work" },
-  { id: "ohermes", name: "Obsidian Hermes", group: "product", anchor: "#work" },
-  { id: "qgl", name: "Graph Landing", group: "product", anchor: "#work" },
+const KIND = {
+  hub: L("Hub", "허브"),
+  concept: L("Idea from the vault", "볼트에서 온 개념"),
+  product: L("Open-source tool", "오픈소스 도구"),
+  principle: L("Principle", "원칙"),
+};
+const nodes = [
+  ...CONCEPTS.map((c) => ({
+    id: c.id, group: c.group, name: c.label[lang], summary: c.summary[lang],
+    related: c.related, anchor: c.anchor, link: c.link, source: c.source?.[lang],
+  })),
+  ...REPOS.map((r) => ({
+    id: r.id, group: "product", name: r.name, summary: r.summary[lang],
+    related: r.related ?? [], anchor: "#work", page: `${P}/work/${r.slug}/`, github: `https://github.com/Xia-Ataraxia/${r.slug}`,
+  })),
 ];
-const edges = [
-  ["xia", "knowledge"], ["xia", "agents"], ["xia", "attention"], ["xia", "ataraxia"], ["xia", "oss"], ["xia", "intent"],
-  ["knowledge", "secondbrain"], ["knowledge", "obsidian"], ["knowledge", "para"], ["knowledge", "zettel"], ["knowledge", "localfirst"], ["knowledge", "moc"], ["knowledge", "daily"], ["knowledge", "quartz"],
-  ["secondbrain", "obsidian"], ["obsidian", "quartz"], ["para", "moc"], ["zettel", "moc"], ["daily", "records"],
-  ["agents", "hermes"], ["agents", "claudecode"], ["agents", "codex"], ["agents", "skills"], ["agents", "receipts"], ["agents", "evidence"], ["agents", "boundaries"], ["agents", "records"],
-  ["skills", "claudecode"], ["skills", "codex"], ["skills", "hermes"], ["receipts", "evidence"], ["hermes", "boundaries"], ["records", "evidence"],
-  ["attention", "intent"], ["attention", "focus"], ["attention", "calm"], ["attention", "deepwork"], ["attention", "economy"], ["attention", "choice"], ["attention", "noise"],
-  ["intent", "choice"], ["economy", "noise"], ["focus", "deepwork"], ["calm", "noise"],
-  ["ataraxia", "ivory"], ["ataraxia", "purity"], ["ataraxia", "stillness"], ["ataraxia", "truth"], ["ataraxia", "beomsu"], ["ivory", "purity"], ["stillness", "calm"], ["beomsu", "intent"],
-  ["p1", "xia"], ["p1", "calm"], ["p2", "xia"], ["p2", "evidence"], ["p3", "xia"], ["p3", "records"], ["p4", "xia"], ["p4", "boundaries"],
-  ["oss", "omsb"], ["oss", "vault"], ["oss", "craft"], ["oss", "sbskills"], ["oss", "mac"], ["oss", "qmd"], ["oss", "oc"], ["oss", "eagle"], ["oss", "player"], ["oss", "bible"], ["oss", "ohermes"], ["oss", "qgl"],
-  ["omsb", "secondbrain"], ["omsb", "vault"], ["vault", "para"], ["craft", "skills"], ["sbskills", "obsidian"], ["sbskills", "skills"], ["mac", "obsidian"], ["qmd", "obsidian"], ["qmd", "localfirst"], ["oc", "obsidian"], ["eagle", "obsidian"], ["player", "obsidian"], ["bible", "obsidian"], ["ohermes", "hermes"], ["qgl", "quartz"],
-];
-
-// Unlabeled "note" nodes give the constellation its density. Seeded so the layout is stable between loads.
-function mulberry32(a) {
-  return () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
-}
-function buildData(noteCount) {
-  const rnd = mulberry32(20260920);
-  const nodes = labeled.map((n) => ({ ...n }));
-  const links = edges.map(([source, target]) => ({ source, target }));
-  const anchors = labeled.filter((n) => n.group !== "principle");
-  for (let i = 0; i < noteCount; i++) {
-    const id = `n${i}`;
-    nodes.push({ id, group: "note" });
-    const a = anchors[Math.floor(rnd() * anchors.length)];
-    links.push({ source: id, target: a.id });
-    if (rnd() < 0.3) {
-      const b = anchors[Math.floor(rnd() * anchors.length)];
-      if (b.id !== a.id) links.push({ source: id, target: b.id });
-    }
-    if (rnd() < 0.12 && i > 0) links.push({ source: id, target: `n${Math.floor(rnd() * i)}` });
+const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
+const neighbors = Object.fromEntries(nodes.map((n) => [n.id, new Set([n.id])]));
+const links = [];
+const seen = new Set();
+for (const n of nodes) {
+  for (const t of n.related) {
+    if (!byId[t] || t === n.id) continue;
+    const key = n.id < t ? `${n.id}|${t}` : `${t}|${n.id}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    links.push({ source: n.id, target: t });
+    neighbors[n.id].add(t);
+    neighbors[t].add(n.id);
   }
-  return { nodes, links };
 }
+
+/* ---------- node panel ---------- */
+const panel = document.getElementById("panel");
+let select = () => {};
+function renderPanel(n) {
+  if (!panel) return;
+  panel.hidden = false;
+  const kind = panel.querySelector(".panel__kind");
+  kind.querySelector("i").className = n.group;
+  kind.querySelector("span").textContent = KIND[n.group];
+  panel.querySelector("h3").textContent = n.name;
+  const p = panel.querySelector("p:not(.panel__kind)");
+  p.innerHTML = "";
+  p.append(n.summary);
+  if (n.source) {
+    const s = document.createElement("small");
+    s.className = "panel__source";
+    s.textContent = L("From the vault: ", "볼트 출처: ") + n.source;
+    p.append(document.createElement("br"), s);
+  }
+  const chips = panel.querySelector(".chips");
+  chips.innerHTML = "";
+  for (const id of n.related) {
+    const r = byId[id];
+    if (!r) continue;
+    const li = document.createElement("li");
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "chip";
+    b.innerHTML = `<i class="${r.group}"></i>`;
+    b.append(r.name);
+    b.addEventListener("click", () => select(r.id, true));
+    li.append(b);
+    chips.append(li);
+  }
+  const actions = panel.querySelector(".panel__actions");
+  actions.innerHTML = "";
+  const act = (href, text, accent, ext) => {
+    const a = document.createElement("a");
+    a.className = "btn btn--small" + (accent ? " btn--accent" : "");
+    a.href = href;
+    if (ext) a.rel = "noopener";
+    a.textContent = text;
+    actions.append(a);
+  };
+  if (n.page) act(n.page, L("Project page →", "프로젝트 페이지 →"), true);
+  if (n.github) act(n.github, "GitHub ↗", false, true);
+  if (n.id === "ataraxia" || n.id === "intent" || n.id === "attention") act(`${P}/manifesto/`, L("Read the manifesto →", "선언 읽기 →"), true);
+  if (n.link) act(n.link, L("beomsukoh.com ↗", "beomsukoh.com ↗"), !n.page, true);
+  if (n.anchor && n.anchor !== "#top" && !n.page) {
+    const a = document.createElement("a");
+    a.className = "btn btn--small";
+    a.href = n.anchor;
+    a.textContent = L("Go to section ↓", "해당 섹션으로 ↓");
+    actions.append(a);
+  }
+  panel.dataset.open = "true";
+}
+function closePanel() {
+  if (!panel) return;
+  panel.dataset.open = "false";
+  select(null);
+}
+panel?.querySelector(".panel__close")?.addEventListener("click", closePanel);
+addEventListener("keydown", (e) => { if (e.key === "Escape" && panel?.dataset.open === "true") closePanel(); });
 
 /* ---------- constellation renderer ---------- */
 const palette = () => isDark()
-  ? { bg: "#090b12", ink: "#d1d1d1", accent: "#c75b75", note: "#8c8c8c", edge: "#a8b0c2", label: "#9a9a9a", edgeAlpha: 0.3 }
-  : { bg: "#ffffff", ink: "#0f0f0f", accent: "#a52142", note: "#737373", edge: "#2a3348", label: "#5f5f5f", edgeAlpha: 0.34 };
+  ? { bg: "#090b12", ink: "#d1d1d1", accent: "#c75b75", edge: "#a8b0c2", edgeDim: "#1a1f2b", label: "#9a9a9a", edgeAlpha: 0.3 }
+  : { bg: "#ffffff", ink: "#0f0f0f", accent: "#a52142", edge: "#2a3348", edgeDim: "#e9ebf0", label: "#5f5f5f", edgeAlpha: 0.34 };
 
-const RADIUS = { hub: 3.6, concept: 2.2, product: 2.2, principle: 2.4, note: 1.2 };
+const RADIUS = { hub: 3.8, concept: 2.1, product: 2.3, principle: 2.5 };
+const TEXT = { hub: 6, concept: 3.8, product: 4, principle: 4 };
 
 async function mountGraph() {
   const hero = document.getElementById("hero");
@@ -165,28 +185,55 @@ async function mountGraph() {
     ]);
 
     let p = palette();
-    const data = buildData(innerWidth < 700 ? 70 : 130);
     const sphereGeo = {};
-    const geo = (r) => (sphereGeo[r] ??= new THREE.SphereGeometry(r, r > 1.5 ? 12 : 6, r > 1.5 ? 12 : 6));
+    const geo = (r) => (sphereGeo[r] ??= new THREE.SphereGeometry(r, 14, 14));
+    const objects = new Map(); // id → { mesh, label }
 
-    const nodeColor = (n) => n.group === "hub" ? p.accent : n.group === "note" ? p.note : n.group === "principle" ? p.accent : p.ink;
+    const nodeColor = (n) => (n.group === "hub" || n.group === "principle") ? p.accent : p.ink;
     const nodeObject = (n) => {
       const r = RADIUS[n.group];
-      const mesh = new THREE.Mesh(geo(r), new THREE.MeshBasicMaterial({ color: nodeColor(n) }));
-      if (n.group === "note") return mesh;
+      const mesh = new THREE.Mesh(geo(r), new THREE.MeshBasicMaterial({ color: nodeColor(n), transparent: true }));
       const group = new THREE.Group();
       group.add(mesh);
       const label = new SpriteText(n.name);
-      label.fontFace = "Inter, system-ui, sans-serif";
+      label.fontFace = lang === "ko" ? "'Noto Sans KR', Inter, system-ui, sans-serif" : "Inter, system-ui, sans-serif";
       label.fontWeight = n.group === "hub" ? "600" : "400";
       label.color = n.group === "hub" ? p.ink : p.label;
-      label.textHeight = n.group === "hub" ? 6 : 3.9;
+      label.textHeight = TEXT[n.group];
       label.backgroundColor = false;
       label.material.depthWrite = false;
+      label.material.transparent = true;
       label.center.set(0, 0.5);
       label.position.x = r + 1.6;
       group.add(label);
+      objects.set(n.id, { mesh, label });
       return group;
+    };
+
+    // Highlight state: a selected node, a hovered node, or a legend group. null = everything lit.
+    let selected = null, hovered = null, groupFilter = null;
+    const litSet = () => {
+      if (selected) return neighbors[selected];
+      if (hovered) return neighbors[hovered];
+      if (groupFilter) return new Set(nodes.filter((n) => n.group === groupFilter).map((n) => n.id));
+      return null;
+    };
+    let lit = null;
+    const isLit = (id) => !lit || lit.has(id);
+    const linkColor = (l) => {
+      const s = l.source.id ?? l.source, t = l.target.id ?? l.target;
+      return !lit || (lit.has(s) && lit.has(t)) ? p.edge : p.edgeDim;
+    };
+    const applyHighlight = () => {
+      lit = litSet();
+      for (const [id, { mesh, label }] of objects) {
+        const on = isLit(id);
+        mesh.material.opacity = on ? 1 : 0.12;
+        label.material.opacity = on ? 1 : 0.1;
+        if (selected === id) { mesh.material.color.set(p.accent); label.color = p.ink; }
+        else { mesh.material.color.set(nodeColor(byId[id])); label.color = byId[id].group === "hub" ? p.ink : p.label; }
+      }
+      graph.linkColor(linkColor);
     };
 
     const graph = ForceGraph3D({ controlType: "orbit" })(el)
@@ -194,28 +241,29 @@ async function mountGraph() {
       .backgroundColor("rgba(0,0,0,0)")
       .showNavInfo(false)
       .enableNodeDrag(false)
-      .graphData(data)
+      .graphData({ nodes, links })
       .nodeThreeObject(nodeObject)
       .nodeThreeObjectExtend(false)
-      .linkColor(() => p.edge)
+      .linkColor(linkColor)
       .linkOpacity(p.edgeAlpha)
       .linkWidth(0)
       .warmupTicks(90)
       .cooldownTicks(220)
-      .onNodeHover((n) => { el.style.cursor = n?.anchor ? "pointer" : ""; })
-      .onNodeClick((n) => {
-        if (!n?.anchor) return;
-        if (n.anchor === "#top") { scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); return; }
-        document.querySelector(n.anchor)?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
-      });
+      .onNodeHover((n) => {
+        el.style.cursor = n ? "pointer" : "";
+        hovered = n?.id ?? null;
+        if (!selected) applyHighlight();
+      })
+      .onNodeClick((n) => select(n.id, true))
+      .onBackgroundClick(() => { if (selected) closePanel(); });
 
-    graph.d3Force("charge").strength((n) => (n.group === "note" ? -40 : -140));
+    graph.d3Force("charge").strength(-150);
     graph.d3Force("link").distance((l) => {
       const s = l.source.group, t = l.target.group;
-      if (s === "note" || t === "note") return 26;
       if (s === "hub" && t === "hub") return 120;
-      if (s === "hub" || t === "hub") return 62;
-      return 48;
+      if (s === "hub" || t === "hub") return 64;
+      if (s === "product" || t === "product") return 44;
+      return 50;
     });
 
     const scene = graph.scene();
@@ -226,28 +274,70 @@ async function mountGraph() {
     controls.autoRotate = !reduceMotion;
     controls.autoRotateSpeed = 0.22;
     controls.enablePan = false;
-    controls.minDistance = 120;
+    controls.minDistance = 90;
     controls.maxDistance = 900;
     graph.cameraPosition({ x: 120, y: 60, z: 420 }, { x: 0, y: 0, z: 0 }, 0);
     let fitted = false;
-    graph.onEngineStop(() => { if (!fitted) { fitted = true; graph.zoomToFit(900, 40, (n) => n.group !== "note"); } });
+    graph.onEngineStop(() => {
+      if (fitted) return;
+      fitted = true;
+      graph.zoomToFit(900, 40);
+      const want = new URLSearchParams(location.search).get("node");
+      if (want && byId[want]) setTimeout(() => select(want, true), 950);
+    });
 
-    // Pause the orbit while the user drags; resume shortly after.
+    // Selecting a node opens the panel, lights its neighbourhood, and eases the camera toward it.
+    select = (id, fly) => {
+      selected = id && byId[id] ? id : null;
+      if (selected) {
+        const n = byId[selected];
+        renderPanel(n);
+        controls.autoRotate = false;
+        if (fly && Number.isFinite(n.x)) {
+          const dist = 280;
+          const len = Math.hypot(n.x, n.y, n.z) || 1;
+          const k = 1 + dist / len;
+          graph.cameraPosition({ x: n.x * k, y: n.y * k, z: n.z * k }, { x: n.x, y: n.y, z: n.z }, reduceMotion ? 0 : 900);
+        }
+        if (history.replaceState) history.replaceState(null, "", `${location.pathname}?node=${selected}${location.hash}`);
+      } else {
+        if (!reduceMotion) controls.autoRotate = true;
+        if (history.replaceState) history.replaceState(null, "", location.pathname + location.hash);
+      }
+      applyHighlight();
+    };
+
+    // Legend buttons light one group at a time.
+    for (const btn of hero.querySelectorAll(".hero__legend button")) {
+      btn.addEventListener("click", () => {
+        const g = btn.dataset.group;
+        groupFilter = groupFilter === g ? null : g;
+        for (const b of hero.querySelectorAll(".hero__legend button")) b.setAttribute("aria-pressed", String(b.dataset.group === groupFilter));
+        if (selected) closePanel(); else applyHighlight();
+      });
+    }
+
+    // Pause the orbit while the user drags; resume shortly after unless a node is open.
     let resumeTimer;
     el.addEventListener("pointerdown", () => { controls.autoRotate = false; clearTimeout(resumeTimer); });
-    el.addEventListener("pointerup", () => { if (!reduceMotion) resumeTimer = setTimeout(() => { controls.autoRotate = true; }, 2500); });
+    el.addEventListener("pointerup", () => { if (!reduceMotion && !selected) resumeTimer = setTimeout(() => { controls.autoRotate = true; }, 2500); });
 
     addEventListener("resize", () => graph.width(el.clientWidth).height(el.clientHeight));
     addEventListener("themechange", () => {
       p = palette();
       applyFog();
-      graph.linkColor(() => p.edge).linkOpacity(p.edgeAlpha).nodeThreeObject(nodeObject);
+      objects.clear();
+      graph.linkOpacity(p.edgeAlpha).nodeThreeObject(nodeObject);
+      applyHighlight();
     });
 
     hero.dataset.graph = "ready";
   } catch (err) {
     console.warn("constellation unavailable", err);
     hero.dataset.graph = "failed";
+    // Without WebGL, ?node= still opens the panel so deep links from the pillars and subpages work.
+    const want = new URLSearchParams(location.search).get("node");
+    if (want && byId[want]) { select = (id) => { if (id) renderPanel(byId[id]); }; select(want); }
   }
 }
 mountGraph();

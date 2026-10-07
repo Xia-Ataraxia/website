@@ -15,7 +15,8 @@
   <meta property="og:site_name" content="XIA">
   <meta property="og:title" content="XIA — Ataraxia, made operational">
   <meta property="og:description" content="Knowledge infrastructure and AI agents that keep your attention yours.">
-  <meta property="og:image" content="https://xia-website.vercel.app/assets/xia-wordmark.png">
+  <meta property="og:image" content="https://xia-website.vercel.app/assets/og.png">
+  <meta property="og:url" content="https://xia-website.vercel.app/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#090b12" media="(prefers-color-scheme: dark)">
@@ -32,8 +33,8 @@
   <header class="chrome">
     <a class="wordmark" href="/" aria-label="XIA home"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
     <nav class="chrome__nav" aria-label="Primary">
-      <a href="#vision">Vision</a>
-      <a href="#principles" class="hide-sm">Principles</a>
+      <a href="#vision" class="hide-sm">Vision</a>
+      <a href="/manifesto/">Manifesto</a>
       <a href="#work">Open source</a>
       <a href="#ataraxia" class="hide-sm">Ataraxia</a>
       <span class="chrome__lang"><a href="/" aria-current="page" data-lang-link="en">EN</a> · <a href="/ko/" hreflang="ko" data-lang-link="ko">KO</a></span>
@@ -45,6 +46,7 @@
   </header>
 
   <section id="hero" class="hero" aria-label="XIA constellation">
+    <div class="hero__loading" aria-hidden="true"><span></span><span></span><span></span></div>
     <div id="graph" class="hero__canvas" aria-hidden="true"></div>
     <p class="hero__fallback">The constellation needs WebGL. Everything below still works.</p>
     <div class="hero__copy">
@@ -53,15 +55,32 @@
       <p class="hero__lede">XIA builds knowledge infrastructure and AI agents that keep your attention yours. The question is never what a tool can do, but whose intent it amplifies.</p>
       <div class="hero__actions">
         <a class="btn btn--accent" href="#vision">What we protect</a>
-        <a class="btn" href="https://github.com/Xia-Ataraxia" rel="noopener">GitHub ↗</a>
+        <a class="btn" href="/manifesto/">Read the manifesto</a>
       </div>
     </div>
-    <p class="hero__hint">Drag to orbit · scroll to zoom · click a node to jump</p>
+    <div class="hero__legend" aria-label="Map legend">
+      <button type="button" data-group="hub"><i class="hub"></i>Hubs</button>
+      <button type="button" data-group="concept"><i class="concept"></i>Ideas from the vault</button>
+      <button type="button" data-group="product"><i class="product"></i>Open-source tools</button>
+      <button type="button" data-group="principle"><i class="principle"></i>Principles</button>
+    </div>
+    <a class="hero__down" href="#vision" aria-label="Scroll down">scroll</a>
+    <p class="hero__hint">Drag to orbit · scroll to zoom · click a node to read</p>
   </section>
+
+  <aside id="panel" class="panel" data-open="false" aria-live="polite" hidden>
+    <button class="panel__close" type="button" aria-label="Close">×</button>
+    <p class="panel__kind"><i></i><span></span></p>
+    <h3></h3>
+    <p></p>
+    <ul class="chips"></ul>
+    <div class="panel__actions"></div>
+  </aside>
 
   <main class="page">
     <section id="vision" class="section" aria-labelledby="vision-title">
       <div class="section__inner">
+        <span class="section__index" aria-hidden="true">01</span>
         <p class="section__kicker">Vision</p>
         <h2 id="vision-title" class="section__title">Attention is not a resource to be harvested.</h2>
         <p class="section__lede">Every tool amplifies someone's intent. Most of today's software amplifies the intent of whoever built it, and pays for it with the user's attention. <strong>We build for the person whose attention is at stake.</strong> Three things we protect:</p>
@@ -70,64 +89,83 @@
             <span class="pillar__n">01</span>
             <h3><span class="pillar__dot" aria-hidden="true"></span>Knowledge management</h3>
             <p>A second brain that stays yours. Local-first vaults, durable conventions, and tools that turn daily work into context your future self can actually use.</p>
+            <a class="pillar__more" href="/?node=secondbrain">See it on the map →</a>
           </article>
           <article class="pillar">
             <span class="pillar__n">02</span>
             <h3><span class="pillar__dot" aria-hidden="true"></span>AI agents with an owner</h3>
             <p>Agents that are understandable and controllable. One operator, explicit boundaries, reversible changes, and a receipt for every result.</p>
+            <a class="pillar__more" href="/?node=agents">See it on the map →</a>
           </article>
           <article class="pillar">
             <span class="pillar__n">03</span>
             <h3><span class="pillar__dot" aria-hidden="true"></span>Cognitive resources</h3>
             <p>Attention and the capacity to think should not be taken for someone else's purpose. Good technology lets people choose where their mind goes.</p>
+            <a class="pillar__more" href="/?node=attention">See it on the map →</a>
           </article>
         </div>
       </div>
     </section>
 
+    <section id="manifesto" class="section" aria-labelledby="manifesto-title">
+      <div class="section__inner quote-block">
+        <span class="section__index" aria-hidden="true">02</span>
+        <p class="section__kicker">Manifesto</p>
+        <h2 id="manifesto-title" class="sr-only">Manifesto</h2>
+        <blockquote>Attention and the capacity to think must not be taken for someone else's purpose. <em>Good technology helps a person choose where their own cognitive resources go.</em></blockquote>
+        <p class="section__lede">Five short parts on intent, attention, knowledge that stays yours, agents with an owner, and why we named the lab after an untroubled mind.</p>
+        <a class="btn btn--accent" href="/manifesto/">Read the manifesto</a>
+      </div>
+    </section>
+
     <section id="principles" class="section" aria-labelledby="principles-title">
       <div class="section__inner">
+        <span class="section__index" aria-hidden="true">03</span>
         <p class="section__kicker">Operating principles</p>
         <h2 id="principles-title" class="section__title">How we work</h2>
         <p class="section__lede">XIA is a small lab: one operator, a vault, and a growing set of agents. These rules keep it calm.</p>
         <ul class="principles">
-          <li><b>Calm over clutter.</b><span>Fewer surfaces, clearer ownership, less background noise.</span></li>
-          <li><b>Evidence before status.</b><span>A task is complete when the result can be inspected, not when it is announced.</span></li>
-          <li><b>Durable over disposable.</b><span>Decisions, context, and tools should survive the current session.</span></li>
-          <li><b>Automation with an owner.</b><span>One operator, explicit boundaries, reversible changes.</span></li>
+          <li data-n="01"><b>Calm over clutter.</b><span>Fewer surfaces, clearer ownership, less background noise.</span></li>
+          <li data-n="02"><b>Evidence before status.</b><span>A task is complete when the result can be inspected, not when it is announced.</span></li>
+          <li data-n="03"><b>Durable over disposable.</b><span>Decisions, context, and tools should survive the current session.</span></li>
+          <li data-n="04"><b>Automation with an owner.</b><span>One operator, explicit boundaries, reversible changes.</span></li>
         </ul>
       </div>
     </section>
 
     <section id="work" class="section" aria-labelledby="work-title">
       <div class="section__inner">
+        <span class="section__index" aria-hidden="true">04</span>
         <p class="section__kicker">Open source</p>
         <h2 id="work-title" class="section__title">Tools we build, use, and choose to share</h2>
-        <p class="section__lede">Not every experiment belongs here. This is a deliberately selected collection, all under <a href="https://github.com/Xia-Ataraxia" rel="noopener">github.com/Xia-Ataraxia</a>.</p>
+        <p class="section__lede">Not every experiment belongs here. This is a deliberately selected collection, all under <a href="https://github.com/Xia-Ataraxia" rel="noopener">github.com/Xia-Ataraxia</a>. Each one has a page with what it does, how to install it, and where it sits on the map.</p>
         <div class="work">
+<!-- work:start -->
           <p class="work__group">Foundations</p>
-          <a class="card" href="https://github.com/Xia-Ataraxia/oh-my-second-brain" rel="noopener"><b>Oh My Second Brain</b><span>A host-agnostic convention layer for Obsidian and Markdown knowledge vaults.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-vault-template" rel="noopener"><b>Obsidian Vault Template</b><span>PARA + Zettelkasten folders, periodic planning templates, and shared rules for humans and agents.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/craft-skills" rel="noopener"><b>craft-skills</b><span>Vendor-neutral Agent Skills for software and research work across Claude Code, Codex, Hermes, and more.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/secondbrain-skills" rel="noopener"><b>secondbrain-skills</b><span>Nine independent Agent Skills for Obsidian workflows.</span></a>
+          <a class="card" href="/work/oh-my-second-brain/"><b>Oh My Second Brain</b><span>A user-owned knowledge and convention layer for Obsidian, Markdown, and AI agents.</span><div class="card__meta"><span>★ <em>5</em></span><span>Oct 2026</span></div></a>
+          <a class="card" href="/work/obsidian-vault-template/"><b>Obsidian Vault Template</b><span>PARA organization, Zettelkasten thinking, and periodic planning, with shared rules for humans and AI agents.</span><div class="card__meta"><span>★ <em>1</em></span><span>Oct 2026</span></div></a>
+          <a class="card" href="/work/craft-skills/"><b>craft-skills</b><span>Forty-eight Agent Skills for software and research work in the plain SKILL.md layout.</span><div class="card__meta"><span>★ <em>0</em></span><span>Oct 2026</span></div></a>
+          <a class="card" href="/work/secondbrain-skills/"><b>secondbrain-skills</b><span>Twenty independent Agent Skills for Obsidian vaults: nine that own a format (Markdown, Bases, Canvas, Mermaid, CLI, Clipper, Sync) and eleven that run a capture → ingest → query → verify knowledge pipeline.</span><div class="card__meta"><span>★ <em>0</em></span><span>Oct 2026</span></div></a>
 
           <p class="work__group">Obsidian plugins</p>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-metadata-auto-classifier" rel="noopener"><b>Metadata Auto Classifier</b><span>Generate tags and frontmatter for notes with AI providers.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-qmd" rel="noopener"><b>Obsidian QMD</b><span>Local QMD search, related notes, and autosync.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-open-connections" rel="noopener"><b>Open Connections</b><span>Semantically related notes and search with local or API embeddings, plus an MCP server.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-eagle" rel="noopener"><b>Eagle Integration</b><span>Upload pasted images to Eagle and render them from a local vault cache.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-note-player" rel="noopener"><b>Note Player</b><span>Play note-backed playlists with YouTube, cached audio, and local files.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-bible-search" rel="noopener"><b>Bible Search</b><span>Search Korean and English Bible verses and insert them with a template.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-hermes" rel="noopener"><b>Obsidian Hermes</b><span>View remote Hermes cron schedules and edit profile documents over SSH.</span></a>
+          <a class="card" href="/work/obsidian-metadata-auto-classifier/"><b>Metadata Auto Classifier</b><span>An Obsidian plugin that analyzes a note and generates tags and frontmatter values with a configurable AI provider.</span><div class="card__meta"><span>★ <em>57</em></span><span>↓ <em>8,047</em></span><span>Oct 2026</span></div></a>
+          <a class="card" href="/work/obsidian-open-connections/"><b>Open Connections</b><span>Discovers related notes and enables semantic search across the vault, powered by local embeddings in the browser or the AI provider you choose.</span><div class="card__meta"><span>★ <em>20</em></span><span>↓ <em>3,072</em></span><span>Sep 2026</span></div></a>
+          <a class="card" href="/work/obsidian-qmd/"><b>Obsidian QMD</b><span>Bridges Obsidian with a local QMD daemon for fast, private semantic search: keyword, vector, hybrid, and advanced modes, a related-notes sidebar, and automatic re-indexing when notes change.</span><div class="card__meta"><span>★ <em>3</em></span><span>Sep 2026</span></div></a>
+          <a class="card" href="/work/obsidian-eagle/"><b>Eagle Integration</b><span>Paste an image into a note and it is uploaded to Eagle, your media manager, and rendered from a local cache.</span><div class="card__meta"><span>★ <em>10</em></span><span>↓ <em>2,986</em></span><span>Sep 2026</span></div></a>
+          <a class="card" href="/work/obsidian-note-player/"><b>Note Player</b><span>Turn any note into a music playlist.</span><div class="card__meta"><span>★ <em>2</em></span><span>Sep 2026</span></div></a>
+          <a class="card" href="/work/obsidian-bible-search/"><b>Bible Search</b><span>Search Bible verses by book, chapter, and range in Korean or English and insert them into a note with a configurable template.</span><div class="card__meta"><span>★ <em>0</em></span><span>Sep 2026</span></div></a>
+          <a class="card" href="/work/obsidian-hermes/"><b>Obsidian Hermes</b><span>View the cron schedules of remote Hermes agents and edit their profile documents over SSH, from inside Obsidian.</span><div class="card__meta"><span>★ <em>0</em></span><span>Sep 2026</span></div></a>
 
           <p class="work__group">Publishing</p>
-          <a class="card" href="https://github.com/Xia-Ataraxia/quartz-graph-landing" rel="noopener"><b>Quartz Graph Landing</b><span>A full-viewport 2D/3D knowledge-graph landing page for Quartz. The same constellation you see behind this page.</span></a>
+          <a class="card" href="/work/quartz-graph-landing/"><b>Quartz Graph Landing</b><span>A Quartz v5 plugin that turns a digital garden's front page into a full-viewport 2D/3D knowledge-graph constellation.</span><div class="card__meta"><span>★ <em>1</em></span><span>Sep 2026</span></div></a>
+<!-- work:end -->
         </div>
       </div>
     </section>
 
     <section id="ataraxia" class="section" aria-labelledby="ataraxia-title">
       <div class="section__inner">
+        <span class="section__index" aria-hidden="true">05</span>
         <p class="section__kicker">Why Ataraxia</p>
         <h2 id="ataraxia-title" class="section__title">An ivory tower, chosen on purpose</h2>
         <div class="about">
@@ -141,20 +179,24 @@
             <dt>Based in</dt><dd>Korea</dd>
             <dt>Code</dt><dd><a href="https://github.com/Xia-Ataraxia" rel="noopener">github.com/Xia-Ataraxia</a></dd>
             <dt>Writing</dt><dd><a href="https://beomsukoh.com/" rel="noopener">beomsukoh.com</a></dd>
+            <dt>Manifesto</dt><dd><a href="/manifesto/">Technology amplifies intent</a></dd>
           </dl>
         </div>
       </div>
     </section>
-
-    <footer class="footer">
-      <span>© 2026 XIA · Ataraxia, made operational.</span>
-      <nav aria-label="Footer">
-        <a href="https://github.com/Xia-Ataraxia" rel="noopener">GitHub</a>
-        <a href="https://beomsukoh.com/" rel="noopener">beomsukoh.com</a>
-        <a href="/ko/" hreflang="ko" data-lang-link="ko">한국어</a>
-      </nav>
-    </footer>
   </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a class="wordmark" href="/" aria-label="XIA home"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
+        <p>Knowledge infrastructure and AI agents that keep your attention yours.</p>
+      </div>
+      <div><h4>Site</h4><ul><li><a href="#vision">Vision</a></li><li><a href="/manifesto/">Manifesto</a></li><li><a href="#work">Open source</a></li><li><a href="#ataraxia">Why Ataraxia</a></li></ul></div>
+      <div><h4>Elsewhere</h4><ul><li><a href="https://github.com/Xia-Ataraxia" rel="noopener">GitHub</a></li><li><a href="https://beomsukoh.com/" rel="noopener">beomsukoh.com</a></li><li><a href="/ko/" hreflang="ko" data-lang-link="ko">한국어</a></li></ul></div>
+    </div>
+    <div class="footer__meta"><span>© 2026 XIA · Ataraxia, made operational.</span><span>Beomsu Koh · Korea</span></div>
+  </footer>
 
   <script type="module" src="/assets/main.js"></script>
 </body>

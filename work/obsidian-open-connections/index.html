@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Open Connections — XIA</title>
+  <meta name="description" content="Discovers related notes and enables semantic search across the vault, powered by local embeddings in the browser or the AI provider you choose. Notes never leave the device when running locally. Ships an MCP server.">
+  <link rel="canonical" href="https://xia-website.vercel.app/work/obsidian-open-connections/">
+  <link rel="alternate" hreflang="en" href="https://xia-website.vercel.app/work/obsidian-open-connections/">
+  <link rel="alternate" hreflang="ko" href="https://xia-website.vercel.app/ko/work/obsidian-open-connections/">
+  <link rel="alternate" hreflang="x-default" href="https://xia-website.vercel.app/work/obsidian-open-connections/">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/icon-512.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="XIA">
+  <meta property="og:title" content="Open Connections — XIA">
+  <meta property="og:description" content="Discovers related notes and enables semantic search across the vault, powered by local embeddings in the browser or the AI provider you choose. Notes never leave the device when running locally. Ships an MCP server.">
+  <meta property="og:image" content="https://xia-website.vercel.app/assets/og.png">
+  <meta property="og:url" content="https://xia-website.vercel.app/work/obsidian-open-connections/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#090b12" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+  <header class="chrome chrome--solid">
+    <a class="wordmark" href="/" aria-label="XIA home"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
+    <nav class="chrome__nav" aria-label="Primary">
+      <a href="/#vision" class="hide-sm">Vision</a>
+      <a href="/manifesto/">Manifesto</a>
+      <a href="/#work">Open source</a>
+      <a href="/#ataraxia" class="hide-sm">Ataraxia</a>
+      <span class="chrome__lang"><a href="/work/obsidian-open-connections/" aria-current="page" data-lang-link="en">EN</a> · <a href="/ko/work/obsidian-open-connections/" hreflang="ko" data-lang-link="ko">KO</a></span>
+      <button id="theme" class="iconbtn" type="button" aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
+      </button>
+    </nav>
+  </header>
+  <main id="main">
+    <article class="doc">
+      <div class="doc__wide">
+        <p class="crumbs"><a href="/">XIA</a> / <a href="/#work">Open source</a> / <span>Obsidian plugins</span></p>
+        <h1>Open Connections</h1>
+        <p class="doc__tagline">Your notes, semantically connected.</p>
+        <div class="doc__meta">
+          <span>Kind <em>Obsidian plugins</em></span>
+          <span>Language <em>TypeScript</em></span>
+          <span>License <em>GPL-3.0</em></span>
+          <span>★ <em>20</em> stars</span>
+          <span>↓ <em>3,072</em> downloads</span>
+          <span>updated <em>Sep 2026</em></span>
+        </div>
+        <div class="doc__grid">
+          <div class="prose">
+          
+          <p><strong>Discovers related notes and enables semantic search across the vault, powered by local embeddings in the browser or the AI provider you choose. Notes never leave the device when running locally. Ships an MCP server.</strong></p>
+          <p>As you write, the Connections view surfaces notes that are semantically related to the one you are in and updates when you move. Semantic Lookup searches the vault by meaning rather than keywords.</p>
+          <p>Local embeddings are the default: Transformers.js runs in-browser with WebGPU acceleration and a WASM fallback, with multilingual models for non-English vaults. OpenAI, Gemini, Ollama, LM Studio, Upstage, and OpenRouter are available when you want them.</p>
+          <p>Embeddings are cached in SQLite and re-built automatically when the model changes. Works on desktop and mobile, and listed in the community plugin directory.</p>
+          <h2><small>Install</small>Obsidian</h2>
+          <div class="codeblock"><pre><code>Settings → Community plugins → Browse → &quot;Open Connections&quot; → Install → Enable</code></pre><span class="codeblock__label"><button class="codeblock__copy" type="button" data-copy data-copied="Copied">Copy</button></span></div>
+          <div class="related"><h4>Related ideas on the map</h4><ul class="chips"><li><a class="chip" href="/?node=obsidian"><i></i>Obsidian</a></li><li><a class="chip" href="/?node=localfirst"><i></i>Local-first</a></li><li><a class="chip" href="/?node=moc"><i></i>Map of Content</a></li><li><a class="chip" href="/?node=agents"><i></i>AI agents</a></li></ul></div>
+          </div>
+          <aside class="aside">
+            <div class="aside__box"><h4>At a glance</h4><ul><li><span>Community plugin</span></li><li><span>Local by default</span></li><li><span>MCP server</span></li><li><span>GPL-3.0</span></li></ul></div>
+            <div class="aside__links">
+              <a class="btn btn--accent" href="https://github.com/Xia-Ataraxia/obsidian-open-connections" rel="noopener">View on GitHub ↗</a>
+              <a class="btn" href="https://obsidian.md/plugins?id=open-connections" rel="noopener">Obsidian community plugin ↗</a>
+            </div>
+          </aside>
+        </div>
+        <nav class="docnav" aria-label="Previous / Next">
+          <a href="/work/obsidian-metadata-auto-classifier/"><small>← Previous</small><b>Metadata Auto Classifier</b></a>
+          <a href="/work/obsidian-qmd/"><small>Next →</small><b>Obsidian QMD</b></a>
+        </nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a class="wordmark" href="/" aria-label="XIA home"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
+        <p>Knowledge infrastructure and AI agents that keep your attention yours.</p>
+      </div>
+      <div><h4>Site</h4><ul><li><a href="/">Home</a></li><li><a href="/manifesto/">Manifesto</a></li><li><a href="/#work">Open source</a></li><li><a href="/#ataraxia">Why Ataraxia</a></li></ul></div>
+      <div><h4>Elsewhere</h4><ul><li><a href="https://github.com/Xia-Ataraxia" rel="noopener">GitHub</a></li><li><a href="https://beomsukoh.com/" rel="noopener">beomsukoh.com</a></li><li><a href="/ko/">한국어</a></li></ul></div>
+    </div>
+    <div class="footer__meta"><span>© 2026 XIA · Ataraxia, made operational.</span><span>Beomsu Koh · Korea</span></div>
+  </footer>
+  <script type="module" src="/assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Quartz Graph Landing — XIA</title>
+  <meta name="description" content="A Quartz v5 plugin that turns a digital garden's front page into a full-viewport 2D/3D knowledge-graph constellation. Reads the stock content index; no other plugin required.">
+  <link rel="canonical" href="https://xia-website.vercel.app/work/quartz-graph-landing/">
+  <link rel="alternate" hreflang="en" href="https://xia-website.vercel.app/work/quartz-graph-landing/">
+  <link rel="alternate" hreflang="ko" href="https://xia-website.vercel.app/ko/work/quartz-graph-landing/">
+  <link rel="alternate" hreflang="x-default" href="https://xia-website.vercel.app/work/quartz-graph-landing/">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/icon-512.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="XIA">
+  <meta property="og:title" content="Quartz Graph Landing — XIA">
+  <meta property="og:description" content="A Quartz v5 plugin that turns a digital garden's front page into a full-viewport 2D/3D knowledge-graph constellation. Reads the stock content index; no other plugin required.">
+  <meta property="og:image" content="https://xia-website.vercel.app/assets/og.png">
+  <meta property="og:url" content="https://xia-website.vercel.app/work/quartz-graph-landing/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#090b12" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+  <header class="chrome chrome--solid">
+    <a class="wordmark" href="/" aria-label="XIA home"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
+    <nav class="chrome__nav" aria-label="Primary">
+      <a href="/#vision" class="hide-sm">Vision</a>
+      <a href="/manifesto/">Manifesto</a>
+      <a href="/#work">Open source</a>
+      <a href="/#ataraxia" class="hide-sm">Ataraxia</a>
+      <span class="chrome__lang"><a href="/work/quartz-graph-landing/" aria-current="page" data-lang-link="en">EN</a> · <a href="/ko/work/quartz-graph-landing/" hreflang="ko" data-lang-link="ko">KO</a></span>
+      <button id="theme" class="iconbtn" type="button" aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
+      </button>
+    </nav>
+  </header>
+  <main id="main">
+    <article class="doc">
+      <div class="doc__wide">
+        <p class="crumbs"><a href="/">XIA</a> / <a href="/#work">Open source</a> / <span>Publishing</span></p>
+        <h1>Quartz Graph Landing</h1>
+        <p class="doc__tagline">The constellation you are looking at.</p>
+        <div class="doc__meta">
+          <span>Kind <em>Publishing</em></span>
+          <span>Language <em>TypeScript</em></span>
+          <span>License <em>MIT</em></span>
+          <span>★ <em>1</em> stars</span>
+          <span>updated <em>Sep 2026</em></span>
+        </div>
+        <div class="doc__grid">
+          <div class="prose">
+          
+          <p><strong>A Quartz v5 plugin that turns a digital garden's front page into a full-viewport 2D/3D knowledge-graph constellation. Reads the stock content index; no other plugin required.</strong></p>
+          <p>Every published note becomes a node and every wikilink an edge. The visitor orbits the whole garden before reading a single page, and clicking a node opens the note.</p>
+          <p>Options cover 2D or 3D rendering, label density, colors, and an optional multilingual graph index for gardens published in more than one language. Defaults reproduce the plugin's original behavior exactly.</p>
+          <p>The hero of this website is a lean rebuild of the same idea with the same three.js and 3d-force-graph versions.</p>
+          <h2><small>Install</small>quartz.config.ts</h2>
+          <div class="codeblock"><pre><code>- source: github:Xia-Ataraxia/quartz-graph-landing
+  enabled: true
+  options:
+    indexSource: contentIndex</code></pre><span class="codeblock__label"><button class="codeblock__copy" type="button" data-copy data-copied="Copied">Copy</button></span></div>
+          <div class="related"><h4>Related ideas on the map</h4><ul class="chips"><li><a class="chip" href="/?node=quartz"><i></i>Quartz</a></li><li><a class="chip" href="/?node=obsidian"><i></i>Obsidian</a></li><li><a class="chip" href="/?node=moc"><i></i>Map of Content</a></li><li><a class="chip" href="/?node=garden"><i></i>Digital garden</a></li></ul></div>
+          </div>
+          <aside class="aside">
+            <div class="aside__box"><h4>At a glance</h4><ul><li><span>Quartz v5</span></li><li><span>2D / 3D</span></li><li><span>Stock content index</span></li><li><span>MIT</span></li></ul></div>
+            <div class="aside__links">
+              <a class="btn btn--accent" href="https://github.com/Xia-Ataraxia/quartz-graph-landing" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </aside>
+        </div>
+        <nav class="docnav" aria-label="Previous / Next">
+          <a href="/work/obsidian-hermes/"><small>← Previous</small><b>Obsidian Hermes</b></a>
+          <a href="/work/oh-my-second-brain/"><small>Next →</small><b>Oh My Second Brain</b></a>
+        </nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a class="wordmark" href="/" aria-label="XIA home"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
+        <p>Knowledge infrastructure and AI agents that keep your attention yours.</p>
+      </div>
+      <div><h4>Site</h4><ul><li><a href="/">Home</a></li><li><a href="/manifesto/">Manifesto</a></li><li><a href="/#work">Open source</a></li><li><a href="/#ataraxia">Why Ataraxia</a></li></ul></div>
+      <div><h4>Elsewhere</h4><ul><li><a href="https://github.com/Xia-Ataraxia" rel="noopener">GitHub</a></li><li><a href="https://beomsukoh.com/" rel="noopener">beomsukoh.com</a></li><li><a href="/ko/">한국어</a></li></ul></div>
+    </div>
+    <div class="footer__meta"><span>© 2026 XIA · Ataraxia, made operational.</span><span>Beomsu Koh · Korea</span></div>
+  </footer>
+  <script type="module" src="/assets/main.js"></script>
+</body>
+</html>

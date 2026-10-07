@@ -15,7 +15,8 @@
   <meta property="og:site_name" content="XIA">
   <meta property="og:title" content="XIA — 고요함을 운영하는 곳">
   <meta property="og:description" content="당신의 주의가 당신의 것으로 남도록 만드는 지식 인프라와 AI 에이전트.">
-  <meta property="og:image" content="https://xia-website.vercel.app/assets/xia-wordmark.png">
+  <meta property="og:image" content="https://xia-website.vercel.app/assets/og.png">
+  <meta property="og:url" content="https://xia-website.vercel.app/ko/">
   <meta property="og:locale" content="ko_KR">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -23,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://esm.sh" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
   <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
@@ -33,10 +34,10 @@
   <header class="chrome">
     <a class="wordmark" href="/ko/" aria-label="XIA 홈"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
     <nav class="chrome__nav" aria-label="주 메뉴">
-      <a href="#vision">비전</a>
-      <a href="#principles" class="hide-sm">원칙</a>
-      <a href="#work">오픈 소스</a>
-      <a href="#ataraxia" class="hide-sm">Ataraxia</a>
+      <a href="#vision" class="hide-sm">비전</a>
+      <a href="/ko/manifesto/">선언</a>
+      <a href="#work">오픈소스</a>
+      <a href="#ataraxia" class="hide-sm">아타락시아</a>
       <span class="chrome__lang"><a href="/" hreflang="en" data-lang-link="en">EN</a> · <a href="/ko/" aria-current="page" data-lang-link="ko">KO</a></span>
       <button id="theme" class="iconbtn" type="button" aria-label="다크 모드 전환">
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
@@ -46,6 +47,7 @@
   </header>
 
   <section id="hero" class="hero" aria-label="XIA 지식 그래프">
+    <div class="hero__loading" aria-hidden="true"><span></span><span></span><span></span></div>
     <div id="graph" class="hero__canvas" aria-hidden="true"></div>
     <p class="hero__fallback">그래프를 보려면 WebGL이 필요합니다. 아래 내용은 그대로 읽을 수 있습니다.</p>
     <div class="hero__copy">
@@ -54,15 +56,32 @@
       <p class="hero__lede">XIA는 당신의 주의가 당신의 것으로 남도록 지식 인프라와 AI 에이전트를 만듭니다. 중요한 것은 도구가 무엇을 할 수 있느냐가 아니라, 누구의 의도를 증폭하느냐입니다.</p>
       <div class="hero__actions">
         <a class="btn btn--accent" href="#vision">우리가 지키는 것</a>
-        <a class="btn" href="https://github.com/Xia-Ataraxia" rel="noopener">GitHub ↗</a>
+        <a class="btn" href="/ko/manifesto/">선언 읽기</a>
       </div>
     </div>
-    <p class="hero__hint">드래그로 회전 · 스크롤로 확대 · 노드를 누르면 이동</p>
+    <div class="hero__legend" aria-label="지도 범례">
+      <button type="button" data-group="hub"><i class="hub"></i>허브</button>
+      <button type="button" data-group="concept"><i class="concept"></i>볼트에서 온 개념</button>
+      <button type="button" data-group="product"><i class="product"></i>오픈소스 도구</button>
+      <button type="button" data-group="principle"><i class="principle"></i>원칙</button>
+    </div>
+    <a class="hero__down" href="#vision" aria-label="아래로">scroll</a>
+    <p class="hero__hint">드래그로 회전 · 스크롤로 확대 · 노드를 누르면 읽기</p>
   </section>
+
+  <aside id="panel" class="panel" data-open="false" aria-live="polite" hidden>
+    <button class="panel__close" type="button" aria-label="닫기">×</button>
+    <p class="panel__kind"><i></i><span></span></p>
+    <h3></h3>
+    <p></p>
+    <ul class="chips"></ul>
+    <div class="panel__actions"></div>
+  </aside>
 
   <main class="page">
     <section id="vision" class="section" aria-labelledby="vision-title">
       <div class="section__inner">
+        <span class="section__index" aria-hidden="true">01</span>
         <p class="section__kicker">비전</p>
         <h2 id="vision-title" class="section__title">주의는 수확되는 자원이 아닙니다.</h2>
         <p class="section__lede">모든 도구는 누군가의 의도를 증폭합니다. 오늘날 대부분의 소프트웨어는 만든 사람의 의도를 증폭하고, 그 비용을 사용자의 주의로 치릅니다. <strong>우리는 주의를 빼앗길 위치에 있는 사람을 위해 만듭니다.</strong> 우리가 지키는 세 가지:</p>
@@ -71,64 +90,83 @@
             <span class="pillar__n">01</span>
             <h3><span class="pillar__dot" aria-hidden="true"></span>지식 관리</h3>
             <p>당신의 것으로 남는 세컨드 브레인. 로컬 우선 볼트, 오래가는 규약, 그리고 오늘의 일을 미래의 내가 실제로 쓸 수 있는 맥락으로 바꾸는 도구.</p>
+            <a class="pillar__more" href="/ko/?node=secondbrain">지도에서 보기 →</a>
           </article>
           <article class="pillar">
             <span class="pillar__n">02</span>
             <h3><span class="pillar__dot" aria-hidden="true"></span>주인이 있는 AI 에이전트</h3>
             <p>이해할 수 있고 통제할 수 있는 에이전트. 한 명의 운영자, 분명한 경계, 되돌릴 수 있는 변경, 그리고 모든 결과에 남는 영수증.</p>
+            <a class="pillar__more" href="/ko/?node=agents">지도에서 보기 →</a>
           </article>
           <article class="pillar">
             <span class="pillar__n">03</span>
             <h3><span class="pillar__dot" aria-hidden="true"></span>인지 자원</h3>
             <p>주의와 생각할 여력은 타인의 목적을 위해 탈취되어서는 안 됩니다. 좋은 기술은 사람이 자신의 인지 자원을 어디에 쓸지 스스로 선택하게 돕습니다.</p>
+            <a class="pillar__more" href="/ko/?node=attention">지도에서 보기 →</a>
           </article>
         </div>
       </div>
     </section>
 
+    <section id="manifesto" class="section" aria-labelledby="manifesto-title">
+      <div class="section__inner quote-block">
+        <span class="section__index" aria-hidden="true">02</span>
+        <p class="section__kicker">선언</p>
+        <h2 id="manifesto-title" class="sr-only">선언</h2>
+        <blockquote>주의와 생각할 여력은 타인의 목적을 위해 탈취되어서는 안 된다. <em>좋은 기술은 사람이 자신의 인지 자원을 어디에 쓸지 스스로 선택하게 돕는다.</em></blockquote>
+        <p class="section__lede">의도, 주의, 당신의 것으로 남는 지식, 주인이 있는 에이전트, 그리고 왜 연구소 이름을 흔들리지 않는 마음에서 따왔는지. 짧은 다섯 부분.</p>
+        <a class="btn btn--accent" href="/ko/manifesto/">선언 읽기</a>
+      </div>
+    </section>
+
     <section id="principles" class="section" aria-labelledby="principles-title">
       <div class="section__inner">
+        <span class="section__index" aria-hidden="true">03</span>
         <p class="section__kicker">운영 원칙</p>
         <h2 id="principles-title" class="section__title">우리가 일하는 방식</h2>
         <p class="section__lede">XIA는 작은 연구소입니다. 운영자 한 명, 볼트 하나, 그리고 늘어나는 에이전트들. 이 원칙이 그것을 고요하게 유지합니다.</p>
         <ul class="principles">
-          <li><b>소음보다 고요.</b><span>더 적은 화면, 더 분명한 소유, 더 적은 배경 소음.</span></li>
-          <li><b>상태보다 증거.</b><span>일은 알렸을 때가 아니라 결과를 검사할 수 있을 때 끝납니다.</span></li>
-          <li><b>일회성보다 지속.</b><span>결정, 맥락, 도구는 이번 세션이 끝나도 살아남아야 합니다.</span></li>
-          <li><b>주인이 있는 자동화.</b><span>한 명의 운영자, 분명한 경계, 되돌릴 수 있는 변경.</span></li>
+          <li data-n="01"><b>소음보다 고요.</b><span>더 적은 화면, 더 분명한 소유, 더 적은 배경 소음.</span></li>
+          <li data-n="02"><b>상태보다 증거.</b><span>일은 알렸을 때가 아니라 결과를 검사할 수 있을 때 끝납니다.</span></li>
+          <li data-n="03"><b>일회성보다 지속.</b><span>결정, 맥락, 도구는 이번 세션이 끝나도 살아남아야 합니다.</span></li>
+          <li data-n="04"><b>주인이 있는 자동화.</b><span>한 명의 운영자, 분명한 경계, 되돌릴 수 있는 변경.</span></li>
         </ul>
       </div>
     </section>
 
     <section id="work" class="section" aria-labelledby="work-title">
       <div class="section__inner">
-        <p class="section__kicker">오픈 소스</p>
+        <span class="section__index" aria-hidden="true">04</span>
+        <p class="section__kicker">오픈소스</p>
         <h2 id="work-title" class="section__title">직접 만들고, 쓰고, 공유하기로 한 도구</h2>
-        <p class="section__lede">모든 실험이 여기에 오지는 않습니다. 의식적으로 고른 모음이며, 전부 <a href="https://github.com/Xia-Ataraxia" rel="noopener">github.com/Xia-Ataraxia</a>에 있습니다.</p>
+        <p class="section__lede">모든 실험이 여기에 오지는 않습니다. 의식적으로 고른 모음이며, 전부 <a href="https://github.com/Xia-Ataraxia" rel="noopener">github.com/Xia-Ataraxia</a>에 있습니다. 각 도구마다 무엇을 하는지, 어떻게 설치하는지, 지도 어디에 놓이는지 적은 페이지가 있습니다.</p>
         <div class="work">
+<!-- work:start -->
           <p class="work__group">기반</p>
-          <a class="card" href="https://github.com/Xia-Ataraxia/oh-my-second-brain" rel="noopener"><b>Oh My Second Brain</b><span>Obsidian과 마크다운 볼트를 위한, 호스트에 얽매이지 않는 규약 계층.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-vault-template" rel="noopener"><b>Obsidian Vault Template</b><span>PARA + 제텔카스텐 폴더, 주기적 계획 템플릿, 사람과 에이전트가 공유하는 규칙.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/craft-skills" rel="noopener"><b>craft-skills</b><span>Claude Code, Codex, Hermes 등에서 두루 쓰는 벤더 중립 Agent Skills.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/secondbrain-skills" rel="noopener"><b>secondbrain-skills</b><span>Obsidian 워크플로를 위한 독립적인 Agent Skill 아홉 개.</span></a>
+          <a class="card" href="/ko/work/oh-my-second-brain/"><b>Oh My Second Brain</b><span>Obsidian, Markdown, AI 에이전트를 위한 사용자 소유의 지식·규약 계층.</span><div class="card__meta"><span>★ <em>5</em></span><span>2026년 10월</span></div></a>
+          <a class="card" href="/ko/work/obsidian-vault-template/"><b>Obsidian Vault Template</b><span>PARA 구조, 제텔카스텐식 사고, 주기적 계획, 그리고 사람과 AI 에이전트가 공유하는 규칙.</span><div class="card__meta"><span>★ <em>1</em></span><span>2026년 10월</span></div></a>
+          <a class="card" href="/ko/work/craft-skills/"><b>craft-skills</b><span>소프트웨어와 연구 작업을 위한 Agent Skill 48개, 평범한 SKILL.md 구조.</span><div class="card__meta"><span>★ <em>0</em></span><span>2026년 10월</span></div></a>
+          <a class="card" href="/ko/work/secondbrain-skills/"><b>secondbrain-skills</b><span>Obsidian 볼트를 위한 독립 Agent Skill 20개.</span><div class="card__meta"><span>★ <em>0</em></span><span>2026년 10월</span></div></a>
 
           <p class="work__group">Obsidian 플러그인</p>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-metadata-auto-classifier" rel="noopener"><b>Metadata Auto Classifier</b><span>AI로 노트의 태그와 frontmatter를 생성합니다.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-qmd" rel="noopener"><b>Obsidian QMD</b><span>로컬 QMD 검색, 연관 노트, 자동 동기화.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-open-connections" rel="noopener"><b>Open Connections</b><span>로컬 또는 API 임베딩으로 의미상 연관된 노트를 찾고, MCP 서버를 제공합니다.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-eagle" rel="noopener"><b>Eagle Integration</b><span>붙여넣은 이미지를 Eagle에 올리고 로컬 캐시에서 렌더링합니다.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-note-player" rel="noopener"><b>Note Player</b><span>YouTube, 캐시된 오디오, 로컬 파일로 노트 기반 재생목록을 재생합니다.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-bible-search" rel="noopener"><b>Bible Search</b><span>한글과 영어 성경 구절을 찾아 템플릿으로 삽입합니다.</span></a>
-          <a class="card" href="https://github.com/Xia-Ataraxia/obsidian-hermes" rel="noopener"><b>Obsidian Hermes</b><span>원격 Hermes cron 일정을 보고 프로필 문서를 SSH로 편집합니다.</span></a>
+          <a class="card" href="/ko/work/obsidian-metadata-auto-classifier/"><b>Metadata Auto Classifier</b><span>노트를 분석해 설정한 AI 제공자로 태그와 frontmatter 값을 만드는 Obsidian 플러그인.</span><div class="card__meta"><span>★ <em>57</em></span><span>↓ <em>8,047</em></span><span>2026년 10월</span></div></a>
+          <a class="card" href="/ko/work/obsidian-open-connections/"><b>Open Connections</b><span>로컬 임베딩 또는 선택한 AI 제공자로 관련 노트를 찾아내고 볼트 전체를 의미 검색합니다.</span><div class="card__meta"><span>★ <em>20</em></span><span>↓ <em>3,072</em></span><span>2026년 9월</span></div></a>
+          <a class="card" href="/ko/work/obsidian-qmd/"><b>Obsidian QMD</b><span>Obsidian과 로컬 QMD 데몬을 이어 빠르고 사적인 의미 검색을 제공합니다.</span><div class="card__meta"><span>★ <em>3</em></span><span>2026년 9월</span></div></a>
+          <a class="card" href="/ko/work/obsidian-eagle/"><b>Eagle Integration</b><span>노트에 이미지를 붙여넣으면 미디어 관리자 Eagle에 올라가고 로컬 캐시에서 렌더링됩니다.</span><div class="card__meta"><span>★ <em>10</em></span><span>↓ <em>2,986</em></span><span>2026년 9월</span></div></a>
+          <a class="card" href="/ko/work/obsidian-note-player/"><b>Note Player</b><span>어떤 노트든 음악 플레이리스트로.</span><div class="card__meta"><span>★ <em>2</em></span><span>2026년 9월</span></div></a>
+          <a class="card" href="/ko/work/obsidian-bible-search/"><b>Bible Search</b><span>책·장·절 범위로 한국어 또는 영어 성경 구절을 찾아 설정 가능한 템플릿으로 노트에 넣습니다.</span><div class="card__meta"><span>★ <em>0</em></span><span>2026년 9월</span></div></a>
+          <a class="card" href="/ko/work/obsidian-hermes/"><b>Obsidian Hermes</b><span>원격 Hermes 에이전트의 cron 일정을 보고 프로필 문서를 SSH로 편집합니다.</span><div class="card__meta"><span>★ <em>0</em></span><span>2026년 9월</span></div></a>
 
           <p class="work__group">퍼블리싱</p>
-          <a class="card" href="https://github.com/Xia-Ataraxia/quartz-graph-landing" rel="noopener"><b>Quartz Graph Landing</b><span>Quartz용 전체 화면 2D/3D 지식 그래프 랜딩. 이 페이지 뒤의 별자리와 같은 계보입니다.</span></a>
+          <a class="card" href="/ko/work/quartz-graph-landing/"><b>Quartz Graph Landing</b><span>디지털 가든의 첫 페이지를 전체 화면 2D/3D 지식 그래프 별자리로 바꾸는 Quartz v5 플러그인.</span><div class="card__meta"><span>★ <em>1</em></span><span>2026년 9월</span></div></a>
+<!-- work:end -->
         </div>
       </div>
     </section>
 
     <section id="ataraxia" class="section" aria-labelledby="ataraxia-title">
       <div class="section__inner">
+        <span class="section__index" aria-hidden="true">05</span>
         <p class="section__kicker">왜 Ataraxia인가</p>
         <h2 id="ataraxia-title" class="section__title">일부러 고른 상아탑</h2>
         <div class="about">
@@ -142,20 +180,24 @@
             <dt>Based in</dt><dd>대한민국</dd>
             <dt>Code</dt><dd><a href="https://github.com/Xia-Ataraxia" rel="noopener">github.com/Xia-Ataraxia</a></dd>
             <dt>Writing</dt><dd><a href="https://beomsukoh.com/ko/" rel="noopener">beomsukoh.com</a></dd>
+            <dt>Manifesto</dt><dd><a href="/ko/manifesto/">기술은 의도를 증폭한다</a></dd>
           </dl>
         </div>
       </div>
     </section>
-
-    <footer class="footer">
-      <span>© 2026 XIA · Ataraxia, made operational.</span>
-      <nav aria-label="바닥글">
-        <a href="https://github.com/Xia-Ataraxia" rel="noopener">GitHub</a>
-        <a href="https://beomsukoh.com/ko/" rel="noopener">beomsukoh.com</a>
-        <a href="/" hreflang="en" data-lang-link="en">English</a>
-      </nav>
-    </footer>
   </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a class="wordmark" href="/ko/" aria-label="XIA 홈"><span class="wordmark__x">X</span><span class="wordmark__ia">IA</span></a>
+        <p>당신의 주의를 당신 것으로 지키는 지식 인프라와 AI 에이전트.</p>
+      </div>
+      <div><h4>사이트</h4><ul><li><a href="#vision">비전</a></li><li><a href="/ko/manifesto/">선언</a></li><li><a href="#work">오픈소스</a></li><li><a href="#ataraxia">왜 아타락시아인가</a></li></ul></div>
+      <div><h4>바깥</h4><ul><li><a href="https://github.com/Xia-Ataraxia" rel="noopener">GitHub</a></li><li><a href="https://beomsukoh.com/ko/" rel="noopener">beomsukoh.com</a></li><li><a href="/" hreflang="en" data-lang-link="en">English</a></li></ul></div>
+    </div>
+    <div class="footer__meta"><span>© 2026 XIA · 아타락시아를 작동하게 만듭니다.</span><span>고범수 · 대한민국</span></div>
+  </footer>
 
   <script type="module" src="/assets/main.js"></script>
 </body>
